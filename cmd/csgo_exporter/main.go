@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/namsral/flag"
 
@@ -26,15 +27,23 @@ func logRequest(handler http.Handler) http.Handler {
 func main() {
 	var (
 		config   string
+		steamID  string
+		apiKey   string
 		httpHost string
 		httpPort int
 	)
 
 	flag.StringVar(&config, "config", "", "path to config file")
-	flag.StringVar(&httpHost, "h", "0.0.0.0", "HTTP host")
-	flag.IntVar(&httpPort, "p", 9009, "HTTP port")
-
+	flag.StringVar(&httpHost, "host", "0.0.0.0", "HTTP host")
+	flag.IntVar(&httpPort, "port", 7355, "HTTP port")
+	flag.StringVar(&steamID, "steamid", "", "Your Steam ID")
+	flag.StringVar(&apiKey, "apikey", "", "Your Steam API key")
 	flag.Parse()
+
+	if steamID == "" || apiKey == "" {
+		flag.Usage()
+		os.Exit(1)
+	}
 
 	registry := prometheus.NewRegistry()
 	registry.MustRegister(playerCollector.NewPlayerCollector())
@@ -44,7 +53,7 @@ func main() {
 	http.HandleFunc("/health", handlers.HealthHandler)
 	http.Handle("/metrics", handler)
 
-	log.Infof("Listening on %s:%d", httpHost, httpPort)
+	log.Infof("Listening on http://%s:%d", httpHost, httpPort)
 	httpErr := http.ListenAndServe(
 		fmt.Sprintf("%s:%d", httpHost, httpPort),
 		logRequest(http.DefaultServeMux),
