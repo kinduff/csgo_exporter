@@ -1,9 +1,10 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"net/http"
+
+	"github.com/namsral/flag"
 
 	playerCollector "github.com/kinduff/csgo_exporter/internal/collector"
 	"github.com/kinduff/csgo_exporter/internal/handlers"
@@ -22,31 +23,33 @@ func logRequest(handler http.Handler) http.Handler {
 	})
 }
 
-func serveHttp(registry *prometheus.Registry) error {
-	httpHost := flag.String("h", "0.0.0.0", "HTTP host")
-	httpPort := flag.Int("p", 9009, "HTTP port")
+func main() {
+	var (
+		config   string
+		httpHost string
+		httpPort int
+	)
+
+	flag.StringVar(&config, "config", "", "path to config file")
+	flag.StringVar(&httpHost, "h", "0.0.0.0", "HTTP host")
+	flag.IntVar(&httpPort, "p", 9009, "HTTP port")
 
 	flag.Parse()
+
+	registry := prometheus.NewRegistry()
+	registry.MustRegister(playerCollector.NewPlayerCollector())
 
 	handler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{})
 	http.HandleFunc("/", handlers.IndexHandler)
 	http.HandleFunc("/health", handlers.HealthHandler)
 	http.Handle("/metrics", handler)
-	log.Infof("Listening on %s:%d", *httpHost, *httpPort)
 
+	log.Infof("Listening on %s:%d", httpHost, httpPort)
 	httpErr := http.ListenAndServe(
-		fmt.Sprintf("%s:%d", *httpHost, *httpPort),
+		fmt.Sprintf("%s:%d", httpHost, httpPort),
 		logRequest(http.DefaultServeMux),
 	)
 	if httpErr != nil {
 		log.Fatal(httpErr)
 	}
-
-	return nil
-}
-
-func main() {
-	registry := prometheus.NewRegistry()
-	registry.MustRegister(playerCollector.NewPlayerCollector())
-	serveHttp(registry)
 }
