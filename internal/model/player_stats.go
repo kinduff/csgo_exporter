@@ -1,7 +1,8 @@
 package model
 
+// PlayerStats stores a struct of JSON response
 type PlayerStats []struct {
-	SteamId string `json:"steamID"`
+	SteamID string `json:"steamID"`
 
 	Stats struct {
 		Name  string `json:"name"`
