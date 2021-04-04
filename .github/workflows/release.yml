@@ -27,3 +27,4 @@ jobs:
         ldflags: -w -s
         project_path: "./cmd/csgo_exporter"
         binary_name: "csgo_exporter"
+        extra_files: LICENSE README.md
