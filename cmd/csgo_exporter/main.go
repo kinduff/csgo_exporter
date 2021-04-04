@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/namsral/flag"
 
 	playerCollector "github.com/kinduff/csgo_exporter/internal/collector"
@@ -27,8 +28,8 @@ func logRequest(handler http.Handler) http.Handler {
 func main() {
 	var (
 		config   string
-		steamID  string
 		apiKey   string
+		steamID  string
 		httpHost string
 		httpPort int
 	)
@@ -37,8 +38,13 @@ func main() {
 	flag.StringVar(&httpHost, "host", "0.0.0.0", "HTTP host")
 	flag.IntVar(&httpPort, "port", 7355, "HTTP port")
 	flag.StringVar(&steamID, "steamid", "", "Your Steam ID")
-	flag.StringVar(&apiKey, "apikey", "", "Your Steam API key")
 	flag.Parse()
+
+	err := godotenv.Load()
+	if err != nil {
+		log.Println("Error loading .env file, assume env variables are set.")
+	}
+	apiKey = os.Getenv("STEAM_API_KEY")
 
 	if steamID == "" || apiKey == "" {
 		flag.Usage()
