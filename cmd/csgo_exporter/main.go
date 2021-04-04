@@ -17,7 +17,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-// Log internal request to stdout
+// Log internal request to STDOUT.
 func logRequest(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		log.Debugf("%s %s %s\n", r.RemoteAddr, r.Method, r.URL)
@@ -40,10 +40,10 @@ func main() {
 	flag.StringVar(&steamID, "steamid", "", "Your Steam ID")
 	flag.Parse()
 
-	err := godotenv.Load()
-	if err != nil {
+	if err := godotenv.Load(); err != nil {
 		log.Println("Error loading .env file, assume env variables are set.")
 	}
+
 	apiKey = os.Getenv("STEAM_API_KEY")
 
 	if steamID == "" || apiKey == "" {
@@ -55,11 +55,13 @@ func main() {
 	registry.MustRegister(playerCollector.NewPlayerCollector(steamID, apiKey))
 
 	handler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{})
+
 	http.HandleFunc("/", handlers.IndexHandler)
 	http.HandleFunc("/health", handlers.HealthHandler)
 	http.Handle("/metrics", handler)
 
 	log.Infof("Listening on http://%s:%d", httpHost, httpPort)
+
 	httpErr := http.ListenAndServe(
 		fmt.Sprintf("%s:%d", httpHost, httpPort),
 		logRequest(http.DefaultServeMux),

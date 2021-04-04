@@ -1,6 +1,10 @@
+// Package which provides structs to be used with the CSGO API
 package model
 
-// Stats stores a struct of JSON response
+// PlayerStats stores a struct of JSON response for player statistics
+// it contains the SteamID which is the ID of the player, Stats which are
+// all the data gather from all the game, as well as achievements which
+// are the ones achieved by the player.
 type PlayerStats struct {
 	PlayerStats struct {
 		SteamID string `json:"playerstats.steamID"`

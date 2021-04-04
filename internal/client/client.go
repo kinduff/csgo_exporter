@@ -25,6 +25,7 @@ func (client *Client) DoRequest(steamID string, apiKey string, target interface{
 	req, err := http.NewRequest("GET", "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002", nil)
 	if err != nil {
 		log.Fatalf("An error has occurred when creating HTTP request %v", err)
+
 		return err
 	}
 
@@ -40,8 +41,10 @@ func (client *Client) DoRequest(steamID string, apiKey string, target interface{
 	resp, err := client.httpClient.Do(req)
 	if err != nil || !(resp.StatusCode >= 200 && resp.StatusCode < 300) {
 		log.Fatalf("An error has occurred during retrieving statistics %v", err)
+
 		return err
 	}
+
 	defer resp.Body.Close()
 
 	return json.NewDecoder(resp.Body).Decode(target)
