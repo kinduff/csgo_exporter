@@ -1,54 +1,58 @@
 package collector
 
 import (
+	"github.com/kinduff/csgo_exporter/internal/client"
+	"github.com/kinduff/csgo_exporter/internal/model"
+
 	"github.com/prometheus/client_golang/prometheus"
+
+	log "github.com/sirupsen/logrus"
 )
 
-//Define a struct for you collector that contains pointers
-//to prometheus descriptors for each metric you wish to expose.
-//Note you can also include fields of other types if they provide utility
-//but we just won't be exposing them as metrics.
 type playerCollector struct {
-	playerMetric *prometheus.Desc
-	barMetric    *prometheus.Desc
+	steamID            string
+	apiKey             string
+	statsMetric        *prometheus.Desc
+	achievementsMetric *prometheus.Desc
 }
 
-//You must create a constructor for you collector that
-//initializes every descriptor and returns a pointer to the collector
-func NewPlayerCollector() *playerCollector {
+func NewPlayerCollector(steamID string, apiKey string) *playerCollector {
 	return &playerCollector{
-		playerMetric: prometheus.NewDesc("player_metric",
-			"Shows whether a player has occurred in our cluster",
-			nil, nil,
+		steamID: steamID,
+		apiKey:  apiKey,
+		statsMetric: prometheus.NewDesc("stats_metric",
+			"Shows metrics a player has from all its matches",
+			[]string{"name"},
+			prometheus.Labels{"steamID": steamID},
 		),
-		barMetric: prometheus.NewDesc("bar_metric",
-			"Shows whether a bar has occurred in our cluster",
-			nil, nil,
+		achievementsMetric: prometheus.NewDesc("achievements_metric",
+			"Shows metrics a player has for its achievements",
+			[]string{"name"},
+			prometheus.Labels{"steamID": steamID},
 		),
 	}
 }
 
-//Each and every collector must implement the Describe function.
-//It essentially writes all descriptors to the prometheus desc channel.
 func (collector *playerCollector) Describe(ch chan<- *prometheus.Desc) {
-
-	//Update this section with the each metric you create for a given collector
-	ch <- collector.playerMetric
-	ch <- collector.barMetric
+	ch <- collector.statsMetric
+	ch <- collector.achievementsMetric
 }
 
-//Collect implements required collect function for all promehteus collectors
 func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
+	c := client.NewClient()
 
-	//Implement logic here to determine proper metric value to return to prometheus
-	//for each descriptor or call other functions that do so.
-	var metricValue float64
-	if 1 == 1 {
-		metricValue = 1
+	playerStats := model.PlayerStats{}
+	if err := c.DoRequest(collector.steamID, collector.apiKey, &playerStats); err != nil {
+		log.Fatal(err)
 	}
 
-	//Write latest value for each metric in the prometheus metric channel.
-	//Note that you can pass CounterValue, GaugeValue, or UntypedValue types here.
-	ch <- prometheus.MustNewConstMetric(collector.playerMetric, prometheus.CounterValue, metricValue)
-	ch <- prometheus.MustNewConstMetric(collector.barMetric, prometheus.CounterValue, metricValue)
+	stats := playerStats.PlayerStats.Stats
+	for _, s := range stats {
+		ch <- prometheus.MustNewConstMetric(collector.statsMetric, prometheus.GaugeValue, float64(s.Value), s.Name)
+	}
+
+	achievements := playerStats.PlayerStats.Achievements
+	for _, s := range achievements {
+		ch <- prometheus.MustNewConstMetric(collector.achievementsMetric, prometheus.GaugeValue, float64(s.Achieved), s.Name)
+	}
 }

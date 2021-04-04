@@ -46,7 +46,7 @@ func main() {
 	}
 
 	registry := prometheus.NewRegistry()
-	registry.MustRegister(playerCollector.NewPlayerCollector())
+	registry.MustRegister(playerCollector.NewPlayerCollector(steamID, apiKey))
 
 	handler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{})
 	http.HandleFunc("/", handlers.IndexHandler)

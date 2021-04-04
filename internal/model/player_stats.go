@@ -1,16 +1,18 @@
 package model
 
-// PlayerStats stores a struct of JSON response
-type PlayerStats []struct {
-	SteamID string `json:"steamID"`
+// Stats stores a struct of JSON response
+type PlayerStats struct {
+	PlayerStats struct {
+		SteamID string `json:"playerstats.steamID"`
 
-	Stats struct {
-		Name  string `json:"name"`
-		Value int    `json:"value"`
-	} `json:"stats"`
+		Stats []struct {
+			Name  string `json:"name"`
+			Value int    `json:"value"`
+		} `json:"stats"`
 
-	Achievements struct {
-		Name     string `json:"name"`
-		Achieved bool   `json:"achieved"`
-	} `json:"achievements"`
+		Achievements []struct {
+			Name     string `json:"name"`
+			Achieved int    `json:"achieved"`
+		} `json:"achievements"`
+	} `json:"playerstats"`
 }
