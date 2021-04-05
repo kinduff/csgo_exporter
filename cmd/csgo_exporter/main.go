@@ -10,6 +10,7 @@ import (
 
 	playerCollector "github.com/kinduff/csgo_exporter/internal/collector"
 	"github.com/kinduff/csgo_exporter/internal/handlers"
+	"github.com/kinduff/csgo_exporter/internal/model"
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
@@ -26,31 +27,27 @@ func logRequest(handler http.Handler) http.Handler {
 }
 
 func main() {
-	var (
-		apiKey   string
-		steamID  string
-		httpHost string
-		httpPort int
-	)
+	config := model.Config{}
 
-	flag.StringVar(&httpHost, "host", "0.0.0.0", "HTTP host")
-	flag.IntVar(&httpPort, "port", 7355, "HTTP port")
-	flag.StringVar(&steamID, "steamid", "", "Your Steam ID")
+	flag.StringVar(&config.HttpHost, "host", "0.0.0.0", "HTTP host")
+	flag.IntVar(&config.HttpPort, "port", 7355, "HTTP port")
+	flag.StringVar(&config.SteamID, "steamid", "", "Your Steam ID")
+	flag.StringVar(&config.SteamName, "steamname", "", "Your Steam name")
 	flag.Parse()
 
 	if err := godotenv.Load(); err != nil {
 		log.Println("Error loading .env file, assume env variables are set.")
 	}
 
-	apiKey = os.Getenv("STEAM_API_KEY")
+	config.ApiKey = os.Getenv("STEAM_API_KEY")
 
-	if steamID == "" || apiKey == "" {
+	if (config.SteamID == "" && config.SteamName == "") || config.ApiKey == "" {
 		flag.Usage()
 		os.Exit(1)
 	}
 
 	registry := prometheus.NewRegistry()
-	registry.MustRegister(playerCollector.NewPlayerCollector(steamID, apiKey))
+	registry.MustRegister(playerCollector.NewPlayerCollector(&config))
 
 	handler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{})
 
@@ -58,10 +55,10 @@ func main() {
 	http.HandleFunc("/health", handlers.HealthHandler)
 	http.Handle("/metrics", handler)
 
-	log.Infof("Listening on http://%s:%d", httpHost, httpPort)
+	log.Infof("Listening on http://%s:%d", config.HttpHost, config.HttpPort)
 
 	httpErr := http.ListenAndServe(
-		fmt.Sprintf("%s:%d", httpHost, httpPort),
+		fmt.Sprintf("%s:%d", config.HttpHost, config.HttpPort),
 		logRequest(http.DefaultServeMux),
 	)
 	if httpErr != nil {

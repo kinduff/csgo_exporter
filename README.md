@@ -1,9 +1,9 @@
 ![](extra/logo.png)
 
-# CSGO Exporter
+# CSGO Exporter [![GoDoc](https://godoc.org/github.com/kinduff/csgo_exporter?status.svg)][godoc]
 
-[![.github/workflows/release.yml](https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml/badge.svg)](https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml)
-[![Docker Pulls](https://img.shields.io/docker/pulls/kinduff/csgo_exporter.svg?maxAge=604800)][hub]
+[![.github/workflows/release.yml](https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml/badge.svg)][workflow]
+[![Docker Pulls](https://img.shields.io/docker/pulls/kinduff/csgo_exporter.svg?maxAge=604800)][dockerhub]
 
 The CSGO Exporter allows to fetch statistics for one or more players from the [CS:GO](https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/) game by [Valve](https://www.valvesoftware.com/en/).
 
@@ -22,7 +22,9 @@ Then:
 ### Using the docker image
 
 ```shell
-docker run --rm -d -p 7355:7355 --name csgo_exporter kinduff/blackbox-exporter:latest -steamid=1234567890
+docker run --rm -d -p 7355:7355 --name csgo_exporter -e STEAM_API_KEY=abcdefg kinduff/blackbox-exporter:latest -steamid=1234567890
 ```
 
-[hub]: https://hub.docker.com/r/kinduff/csgo_exporter/
+[godoc]: https://godoc.org/github.com/kinduff/csgo_exporter
+[workflow]: https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml
+[dockerhub]: https://hub.docker.com/r/kinduff/csgo_exporter
