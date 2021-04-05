@@ -21,20 +21,44 @@ func NewClient() *Client {
 	}
 }
 
-func (client *Client) DoRequest(steamID string, apiKey string, target interface{}) error {
-	req, err := http.NewRequest("GET", "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002", nil)
+func getEndpoint(endpoint string) string {
+	var path string
+	baseUrl := "https://api.steampowered.com/"
+
+	switch endpoint {
+	case "stats":
+		path = "ISteamUserStats/GetUserStatsForGame/v0002"
+	case "id":
+		path = "ISteamUser/ResolveVanityURL/v0001"
+	}
+
+	return baseUrl + path
+}
+
+func getQueryParams(req *http.Request, apiKey string, endpoint string, steamID string) string {
+	q := req.URL.Query()
+	q.Add("appid", "730")
+	q.Add("key", apiKey)
+
+	switch endpoint {
+	case "stats":
+		q.Add("steamid", steamID)
+	case "id":
+		q.Add("vanityurl", steamID)
+	}
+
+	return q.Encode()
+}
+
+func (client *Client) DoRequest(endpoint string, steamID string, apiKey string, target interface{}) error {
+	req, err := http.NewRequest("GET", getEndpoint(endpoint), nil)
 	if err != nil {
 		log.Fatalf("An error has occurred when creating HTTP request %v", err)
 
 		return err
 	}
 
-	q := req.URL.Query()
-	q.Add("appid", "730")
-	q.Add("steamid", steamID)
-	q.Add("key", apiKey)
-
-	req.URL.RawQuery = q.Encode()
+	req.URL.RawQuery = getQueryParams(req, apiKey, endpoint, steamID)
 
 	log.Infof("Sending HTTP request to %s", req.URL.String())
 

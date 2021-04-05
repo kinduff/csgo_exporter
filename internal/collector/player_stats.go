@@ -41,8 +41,13 @@ func (collector *playerCollector) Describe(ch chan<- *prometheus.Desc) {
 func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 	c := client.NewClient()
 
+	ResolveVanityUrl := model.ResolveVanityUrl{}
+	if err := c.DoRequest("id", collector.steamID, collector.apiKey, &ResolveVanityUrl); err != nil {
+		log.Fatal(err)
+	}
+
 	playerStats := model.PlayerStats{}
-	if err := c.DoRequest(collector.steamID, collector.apiKey, &playerStats); err != nil {
+	if err := c.DoRequest("stats", ResolveVanityUrl.Response.Steamid, collector.apiKey, &playerStats); err != nil {
 		log.Fatal(err)
 	}
 

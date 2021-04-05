@@ -1,4 +1,3 @@
-// Package which provides structs to be used with the CSGO API
 package model
 
 // PlayerStats stores a struct of JSON response for player statistics
