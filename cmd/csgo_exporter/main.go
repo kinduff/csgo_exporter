@@ -27,14 +27,12 @@ func logRequest(handler http.Handler) http.Handler {
 
 func main() {
 	var (
-		config   string
 		apiKey   string
 		steamID  string
 		httpHost string
 		httpPort int
 	)
 
-	flag.StringVar(&config, "config", "", "path to config file")
 	flag.StringVar(&httpHost, "host", "0.0.0.0", "HTTP host")
 	flag.IntVar(&httpPort, "port", 7355, "HTTP port")
 	flag.StringVar(&steamID, "steamid", "", "Your Steam ID")
