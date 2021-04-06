@@ -9,20 +9,45 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-// Client stores and sets the configuration for the net/http pkg.
-type Client struct {
+type client struct {
 	httpClient http.Client
 }
 
 // NewClient provides an interface to make HTTP requests to the Steam API.
-func NewClient() *Client {
-	return &Client{
+func NewClient() *client {
+	return &client{
 		httpClient: http.Client{
 			CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
 			},
 		},
 	}
+}
+
+// DoRequest allows to make requests to the Steam API by standarizing how it receives
+// parameters, and to which endpoint it should do the call.
+func (client *client) DoRequest(endpoint string, config *model.Config, target interface{}) error {
+	req, err := http.NewRequest("GET", getEndpoint(endpoint), nil)
+	if err != nil {
+		log.Fatalf("An error has occurred when creating HTTP request %v", err)
+
+		return err
+	}
+
+	req.URL.RawQuery = getQueryParams(endpoint, config, req)
+
+	log.Infof("Sending HTTP request to %s", req.URL.String())
+
+	resp, err := client.httpClient.Do(req)
+	if err != nil || !(resp.StatusCode >= 200 && resp.StatusCode < 300) {
+		log.Fatalf("An error has occurred during retrieving statistics %v", err)
+
+		return err
+	}
+
+	defer resp.Body.Close()
+
+	return json.NewDecoder(resp.Body).Decode(target)
 }
 
 func getEndpoint(endpoint string) string {
@@ -52,30 +77,4 @@ func getQueryParams(endpoint string, config *model.Config, req *http.Request) st
 	}
 
 	return q.Encode()
-}
-
-// DoRequest allows to make requests to the Steam API by standarizing how it receives
-// parameters, and to which endpoint it should do the call.
-func (client *Client) DoRequest(endpoint string, config *model.Config, target interface{}) error {
-	req, err := http.NewRequest("GET", getEndpoint(endpoint), nil)
-	if err != nil {
-		log.Fatalf("An error has occurred when creating HTTP request %v", err)
-
-		return err
-	}
-
-	req.URL.RawQuery = getQueryParams(endpoint, config, req)
-
-	log.Infof("Sending HTTP request to %s", req.URL.String())
-
-	resp, err := client.httpClient.Do(req)
-	if err != nil || !(resp.StatusCode >= 200 && resp.StatusCode < 300) {
-		log.Fatalf("An error has occurred during retrieving statistics %v", err)
-
-		return err
-	}
-
-	defer resp.Body.Close()
-
-	return json.NewDecoder(resp.Body).Decode(target)
 }
