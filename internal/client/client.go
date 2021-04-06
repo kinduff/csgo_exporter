@@ -9,10 +9,12 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Client stores and sets the configuration for the net/http pkg.
 type Client struct {
 	httpClient http.Client
 }
 
+// NewClient provides an interface to make HTTP requests to the Steam API.
 func NewClient() *Client {
 	return &Client{
 		httpClient: http.Client{
@@ -52,6 +54,8 @@ func getQueryParams(endpoint string, config *model.Config, req *http.Request) st
 	return q.Encode()
 }
 
+// DoRequest allows to make requests to the Steam API by standarizing how it receives
+// parameters, and to which endpoint it should do the call.
 func (client *Client) DoRequest(endpoint string, config *model.Config, target interface{}) error {
 	req, err := http.NewRequest("GET", getEndpoint(endpoint), nil)
 	if err != nil {

@@ -15,6 +15,7 @@ type playerCollector struct {
 	achievementsMetric *prometheus.Desc
 }
 
+// NewPlayerCollector provides an interface to collector player statistics.
 func NewPlayerCollector(config *model.Config) *playerCollector {
 	return &playerCollector{
 		config: config,
