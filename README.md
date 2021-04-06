@@ -2,6 +2,7 @@
 
 # CSGO Exporter [![GoDoc](https://godoc.org/github.com/kinduff/csgo_exporter?status.svg)][godoc]
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/kinduff/csgo_exporter)][goreport]
 [![.github/workflows/release.yml](https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml/badge.svg)][workflow]
 [![Docker Pulls](https://img.shields.io/docker/pulls/kinduff/csgo_exporter.svg?maxAge=604800)][dockerhub]
 
@@ -26,5 +27,6 @@ docker run --rm -d -p 7355:7355 --name csgo_exporter -e STEAM_API_KEY=abcdefg ki
 ```
 
 [godoc]: https://godoc.org/github.com/kinduff/csgo_exporter
+[goreport]: https://goreportcard.com/report/github.com/gustavo-iniguez-goya/opensnitch
 [workflow]: https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml
 [dockerhub]: https://hub.docker.com/r/kinduff/csgo_exporter
