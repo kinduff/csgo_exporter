@@ -61,6 +61,8 @@ func getEndpoint(endpoint string) string {
 		path = "/ISteamUserStats/GetUserStatsForGame/v0002"
 	case "id":
 		path = "/ISteamUser/ResolveVanityURL/v0001"
+	case "news":
+		path = "/ISteamNews/GetNewsForApp/v0002"
 	}
 
 	return baseUrl + path
@@ -79,6 +81,8 @@ func getQueryParams(endpoint string, config *model.Config, req *http.Request) st
 		q.Add("steamid", config.SteamID)
 	case "id":
 		q.Add("vanityurl", config.SteamName)
+	case "news":
+		q.Add("maxlength", "240")
 	}
 
 	q.Add(gameIdKey, "730")

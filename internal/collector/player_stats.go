@@ -13,6 +13,7 @@ type playerCollector struct {
 	config             *model.Config
 	statsMetric        *prometheus.Desc
 	achievementsMetric *prometheus.Desc
+	newsMetric         *prometheus.Desc
 }
 
 // NewPlayerCollector provides an interface to collector player statistics.
@@ -29,12 +30,18 @@ func NewPlayerCollector(config *model.Config) *playerCollector {
 			[]string{"name", "player"},
 			nil,
 		),
+		newsMetric: prometheus.NewDesc("news_metric",
+			"Shows the latest news from CSGO",
+			[]string{"title", "url", "feedlabel"},
+			nil,
+		),
 	}
 }
 
 func (collector *playerCollector) Describe(ch chan<- *prometheus.Desc) {
 	ch <- collector.statsMetric
 	ch <- collector.achievementsMetric
+	ch <- collector.newsMetric
 }
 
 func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
@@ -60,6 +67,11 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 		log.Fatal(err)
 	}
 
+	news := model.News{}
+	if err := client.DoRequest("news", collector.config, &news); err != nil {
+		log.Fatal(err)
+	}
+
 	for _, s := range archivements.AchievementPercentages.Achievements {
 		allPlayerAchievements[s.Name] = 0
 	}
@@ -74,13 +86,15 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 		player = collector.config.SteamID
 	}
 
-	stats := playerStats.PlayerStats.Stats
-	for _, s := range stats {
+	for _, s := range playerStats.PlayerStats.Stats {
 		ch <- prometheus.MustNewConstMetric(collector.statsMetric, prometheus.GaugeValue, float64(s.Value), s.Name, player)
 	}
 
-	achievements := allPlayerAchievements
-	for name, count := range achievements {
+	for name, count := range allPlayerAchievements {
 		ch <- prometheus.MustNewConstMetric(collector.achievementsMetric, prometheus.GaugeValue, float64(count), name, player)
+	}
+
+	for _, s := range news.Appnews.Newsitems {
+		ch <- prometheus.MustNewConstMetric(collector.newsMetric, prometheus.GaugeValue, float64(s.Date), s.Title, s.URL, s.Feedlabel)
 	}
 }
