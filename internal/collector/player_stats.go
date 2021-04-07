@@ -53,13 +53,18 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 		log.Fatal(err)
 	}
 
+	player := collector.config.SteamName
+	if player == "" {
+		player = collector.config.SteamID
+	}
+
 	stats := playerStats.PlayerStats.Stats
 	for _, s := range stats {
-		ch <- prometheus.MustNewConstMetric(collector.statsMetric, prometheus.GaugeValue, float64(s.Value), s.Name, collector.config.SteamName)
+		ch <- prometheus.MustNewConstMetric(collector.statsMetric, prometheus.GaugeValue, float64(s.Value), s.Name, player)
 	}
 
 	achievements := playerStats.PlayerStats.Achievements
 	for _, s := range achievements {
-		ch <- prometheus.MustNewConstMetric(collector.achievementsMetric, prometheus.GaugeValue, float64(s.Achieved), s.Name, collector.config.SteamName)
+		ch <- prometheus.MustNewConstMetric(collector.achievementsMetric, prometheus.GaugeValue, float64(s.Achieved), s.Name, player)
 	}
 }

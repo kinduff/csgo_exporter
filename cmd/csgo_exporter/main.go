@@ -36,7 +36,7 @@ func main() {
 	flag.Parse()
 
 	if err := godotenv.Load(); err != nil {
-		log.Println("Error loading .env file, assume env variables are set.")
+		log.Infof("Error loading .env file, assume env variables are set.")
 	}
 
 	config.ApiKey = os.Getenv("STEAM_API_KEY")
