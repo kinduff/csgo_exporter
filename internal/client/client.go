@@ -55,6 +55,8 @@ func getEndpoint(endpoint string) string {
 	baseUrl := "https://api.steampowered.com"
 
 	switch endpoint {
+	case "achievements":
+		path = "/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002"
 	case "stats":
 		path = "/ISteamUserStats/GetUserStatsForGame/v0002"
 	case "id":
@@ -66,15 +68,20 @@ func getEndpoint(endpoint string) string {
 
 func getQueryParams(endpoint string, config *model.Config, req *http.Request) string {
 	q := req.URL.Query()
-	q.Add("appid", "730")
 	q.Add("key", config.ApiKey)
 
+	gameIdKey := "appid"
+
 	switch endpoint {
+	case "achievements":
+		gameIdKey = "gameid"
 	case "stats":
 		q.Add("steamid", config.SteamID)
 	case "id":
 		q.Add("vanityurl", config.SteamName)
 	}
+
+	q.Add(gameIdKey, "730")
 
 	return q.Encode()
 }

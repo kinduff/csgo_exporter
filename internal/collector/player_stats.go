@@ -38,6 +38,8 @@ func (collector *playerCollector) Describe(ch chan<- *prometheus.Desc) {
 }
 
 func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
+	var allPlayerAchievements = map[string]int{}
+
 	client := client.NewClient()
 
 	if collector.config.SteamID == "" {
@@ -53,6 +55,20 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 		log.Fatal(err)
 	}
 
+	archivements := model.Achievements{}
+	if err := client.DoRequest("achievements", collector.config, &archivements); err != nil {
+		log.Fatal(err)
+	}
+
+	for _, s := range archivements.AchievementPercentages.Achievements {
+		allPlayerAchievements[s.Name] = 0
+	}
+
+	playerAchievements := playerStats.PlayerStats.Achievements
+	for _, s := range playerAchievements {
+		allPlayerAchievements[s.Name] = 1
+	}
+
 	player := collector.config.SteamName
 	if player == "" {
 		player = collector.config.SteamID
@@ -63,8 +79,8 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 		ch <- prometheus.MustNewConstMetric(collector.statsMetric, prometheus.GaugeValue, float64(s.Value), s.Name, player)
 	}
 
-	achievements := playerStats.PlayerStats.Achievements
-	for _, s := range achievements {
-		ch <- prometheus.MustNewConstMetric(collector.achievementsMetric, prometheus.GaugeValue, float64(s.Achieved), s.Name, player)
+	achievements := allPlayerAchievements
+	for name, count := range achievements {
+		ch <- prometheus.MustNewConstMetric(collector.achievementsMetric, prometheus.GaugeValue, float64(count), name, player)
 	}
 }
