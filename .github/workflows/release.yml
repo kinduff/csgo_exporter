@@ -15,12 +15,12 @@ jobs:
       matrix:
         go_version: ['1.12', '1.13', '1.14', '1.15', '1.16']
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-go@v2
-        with:
-          go-version: ${{ matrix.go_version }}
-      - run: go get -t -v ./...
-      - run: go test -v -race ./...
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: ${{ matrix.go_version }}
+    - run: go get -t -v ./...
+    - run: go test -v -race ./...
   releases-matrix:
     name: Release Go Binary
     runs-on: ubuntu-latest
@@ -29,12 +29,12 @@ jobs:
         goos: [linux, windows, darwin, freebsd]
         goarch: ["386", amd64, arm]
         exclude:
-          - goarch: arm
-            goos: darwin
-          - goarch: arm
-            goos: windows
-          - goarch: "386"
-            goos: darwin
+        - goarch: arm
+          goos: darwin
+        - goarch: arm
+          goos: windows
+        - goarch: "386"
+          goos: darwin
     steps:
     - uses: actions/checkout@v2
     - uses: wangyoucao577/go-release-action@v1.16
