@@ -3,7 +3,8 @@
 # CSGO Exporter [![GoDoc](https://godoc.org/github.com/kinduff/csgo_exporter?status.svg)][godoc]
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/kinduff/csgo_exporter)][goreport]
-[![.github/workflows/release.yml](https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml/badge.svg)][workflow]
+[![Test / Build](https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml/badge.svg?branch=master)][workflow-c]
+[![Release](https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml/badge.svg)][workflow-r]
 [![Docker Pulls](https://img.shields.io/docker/pulls/kinduff/csgo_exporter.svg?maxAge=604800)][dockerhub]
 
 The CSGO Exporter allows to fetch statistics for one or more players from the [CS:GO](https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/) game by [Valve](https://www.valvesoftware.com/en/).
@@ -28,5 +29,6 @@ docker run --rm -d -p 7355:7355 --name csgo_exporter -e STEAM_API_KEY=abcdefg ki
 
 [godoc]: https://godoc.org/github.com/kinduff/csgo_exporter
 [goreport]: https://goreportcard.com/report/github.com/gustavo-iniguez-goya/opensnitch
-[workflow]: https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml
+[workflow-c]: https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml
+[workflow-r]: https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml
 [dockerhub]: https://hub.docker.com/r/kinduff/csgo_exporter
