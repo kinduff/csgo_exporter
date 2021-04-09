@@ -17,6 +17,7 @@ FROM $IMAGE
 LABEL name="csgo_exporter"
 
 WORKDIR /root/
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /go/src/github.com/kinduff/csgo_exporter/binary csgo_exporter
 
-CMD ["./csgo_exporter"]
+ENTRYPOINT ["./csgo_exporter"]
