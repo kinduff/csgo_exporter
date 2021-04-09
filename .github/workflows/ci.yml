@@ -1,4 +1,4 @@
-name: Build / Push
+name: Test / Build
 
 on:
   push:
@@ -16,10 +16,35 @@ jobs:
         go_version: ['1.12', '1.13', '1.14', '1.15', '1.16']
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-go@v1
+    - uses: actions/setup-go@v2
       with:
         go-version: ${{ matrix.go_version }}
-    - name: Install go dependencies
-      run: go get -t -v ./...
-    - name: Run go tests
-      run: go test -v -cover -race ./...
+    - run: go get -t -v ./...
+    - run: go test -v -race ./...
+  build:
+    name: Build Docker image
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Prepare
+      id: prepare
+      run: |
+        echo ::set-output name=version::${GITHUB_REF##*/}
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+      with:
+        platforms: all
+    - name: Set up Docker Buildx
+      id: buildx
+      uses: docker/setup-buildx-action@v1
+      with:
+        install: true
+        version: latest
+        driver-opts: image=moby/buildkit:master
+    - name: Build
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: ./Dockerfile
+        platforms: linux/amd64,linux/arm/v7,linux/arm64
+        push: false
