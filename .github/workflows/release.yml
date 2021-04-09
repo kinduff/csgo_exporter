@@ -9,6 +9,18 @@ env:
   REGISTRY_IMAGE: ghcr.io/kinduff/csgo_exporter
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go_version: ['1.12', '1.13', '1.14', '1.15', '1.16']
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.go_version }}
+      - run: go get -t -v ./...
+      - run: go test -v -race ./...
   releases-matrix:
     name: Release Go Binary
     runs-on: ubuntu-latest
