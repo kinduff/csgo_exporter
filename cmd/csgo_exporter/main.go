@@ -5,9 +5,6 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/joho/godotenv"
-	"github.com/namsral/flag"
-
 	playerCollector "github.com/kinduff/csgo_exporter/internal/collector"
 	"github.com/kinduff/csgo_exporter/internal/handlers"
 	"github.com/kinduff/csgo_exporter/internal/model"
@@ -17,6 +14,13 @@ import (
 
 	log "github.com/sirupsen/logrus"
 )
+
+func getEnv(key, fallback string) string {
+	if value, ok := os.LookupEnv(key); ok {
+		return value
+	}
+	return fallback
+}
 
 // Log internal request to STDOUT.
 func logRequest(handler http.Handler) http.Handler {
@@ -29,20 +33,13 @@ func logRequest(handler http.Handler) http.Handler {
 func main() {
 	config := model.Config{}
 
-	flag.StringVar(&config.HttpHost, "host", "0.0.0.0", "HTTP host")
-	flag.IntVar(&config.HttpPort, "port", 7355, "HTTP port")
-	flag.StringVar(&config.SteamID, "steamid", "", "Your Steam ID")
-	flag.StringVar(&config.SteamName, "steamname", "", "Your Steam name")
-	flag.Parse()
-
-	if err := godotenv.Load(); err != nil {
-		log.Infof("Error loading .env file, assume env variables are set.")
-	}
-
-	config.ApiKey = os.Getenv("STEAM_API_KEY")
+	config.HttpPort = getEnv("HTTP_PORT", "7355")
+	config.ApiKey = getEnv("STEAM_API_KEY", "")
+	config.SteamID = getEnv("STEAM_ID", "")
+	config.SteamName = getEnv("STEAM_NAME", "")
 
 	if (config.SteamID == "" && config.SteamName == "") || config.ApiKey == "" {
-		flag.Usage()
+		log.Fatal("Please provide an STEAM_API_KEY, and a STEAM_ID or STEAM_NAME")
 		os.Exit(1)
 	}
 
@@ -55,10 +52,10 @@ func main() {
 	http.HandleFunc("/health", handlers.HealthHandler)
 	http.Handle("/metrics", handler)
 
-	log.Infof("Listening on http://%s:%d", config.HttpHost, config.HttpPort)
+	log.Infof("Listening on http://localhost:%s", config.HttpPort)
 
 	httpErr := http.ListenAndServe(
-		fmt.Sprintf("%s:%d", config.HttpHost, config.HttpPort),
+		fmt.Sprintf(":%s", config.HttpPort),
 		logRequest(http.DefaultServeMux),
 	)
 	if httpErr != nil {
