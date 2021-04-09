@@ -6,7 +6,8 @@ on:
     - '*'
 
 env:
-  REGISTRY_IMAGE: ghcr.io/kinduff/csgo_exporter
+  DH_REGISTRY_IMAGE: kinduff/csgo_exporter
+  GH_REGISTRY_IMAGE: ghcr.io/kinduff/csgo_exporter
 
 jobs:
   test:
@@ -70,11 +71,17 @@ jobs:
         install: true
         version: latest
         driver-opts: image=moby/buildkit:master
-    - name: Login to GitHub Container Registry
+    - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DH_USERNAME }}
         password: ${{ secrets.DH_TOKEN }}
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and Push
       uses: docker/build-push-action@v2
       with:
@@ -83,5 +90,7 @@ jobs:
         platforms: linux/amd64,linux/arm/v7,linux/arm64
         push: true
         tags: |
-          ${{ env.REGISTRY_IMAGE }}:latest
-          ${{ env.REGISTRY_IMAGE }}:${{ steps.prepare.outputs.version }}
+          ${{ env.DH_REGISTRY_IMAGE }}:latest
+          ${{ env.DH_REGISTRY_IMAGE }}:${{ steps.prepare.outputs.version }}
+          ${{ env.GH_REGISTRY_IMAGE }}:latest
+          ${{ env.GH_REGISTRY_IMAGE }}:${{ steps.prepare.outputs.version }}
