@@ -24,21 +24,7 @@ See [Configuration][configuration] in order to set the necessary params to run t
 
 ### Using a binary
 
-You can download the latest version of the binary built for your architecture [here][releases]:
-
-- Architecture **i386** [
-  [Linux](https://github.com/kinduff/csgo_exporter/releases/latest/download/csgo_exporter-linux-386) /
-  [Windows](https://github.com/kinduff/csgo_exporter/releases/latest/download/csgo_exporter-windows-386.exe)
-  ]
-- Architecture **amd64** [
-  [Darwin](https://github.com/kinduff/csgo_exporter/releases/latest/download/csgo_exporter-darwin-amd64) /
-  [Linux](https://github.com/kinduff/csgo_exporter/releases/latest/download/csgo_exporter-linux-amd64) /
-  [Windows](https://github.com/kinduff/csgo_exporter/releases/latest/download/csgo_exporter-windows-amd64.exe)
-  ]
-- Architecture **arm** [
-  [Darwin](https://github.com/kinduff/csgo_exporter/releases/latest/download/csgo_exporter-darwin-arm64) /
-  [Linux](https://github.com/kinduff/csgo_exporter/releases/latest/download/csgo_exporter-linux-arm)
-  ]
+You can download the latest version of the binary built for your architecture [here][releases].
 
 ### Using Docker
 
