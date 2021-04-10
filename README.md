@@ -88,14 +88,14 @@ This exporter uses environment variables, there are no CLI support for now. The 
 ## Footnotes
 
 - <b id="f1">[1]</b>: This port is being assigned for fun, since the bomb code from Counter Strike is `7355608`. [↩](#a1)
-- <b id="f2">[1]</b>: Please note that the `STEAM_ID` environment variable is not required if you provide a `STEAM_NAME`, but this will add 1 HTTP call in order to fetch the SteamID. [↩](#a2)
+- <b id="f2">[2]</b>: Please note that the `STEAM_ID` environment variable is not required if you provide a `STEAM_NAME`, but this will add 1 HTTP call in order to fetch the SteamID. [↩](#a2)
 
 [godoc]: https://godoc.org/github.com/kinduff/csgo_exporter
 [goreport]: https://goreportcard.com/report/github.com/gustavo-iniguez-goya/opensnitch
 [workflow-c]: https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml
 [workflow-r]: https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml
 [dockerhub]: https://hub.docker.com/r/kinduff/csgo_exporter
-[ghcr]:
+[ghcr]: #ghcr
 [csgo]: https://store.steampowered.com/app/730/CounterStrike_Global_Offensive
 [releases]: https://github.com/kinduff/csgo_exporter/releases
 [steam-api]: https://steamcommunity.com/dev/apikey
