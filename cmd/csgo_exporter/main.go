@@ -44,7 +44,8 @@ func main() {
 	}
 
 	registry := prometheus.NewRegistry()
-	registry.MustRegister(playerCollector.NewPlayerCollector(&config))
+	registry_wrap := prometheus.WrapRegistererWithPrefix("csgo_", registry)
+	registry_wrap.MustRegister(playerCollector.NewPlayerCollector(&config))
 
 	handler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{})
 
