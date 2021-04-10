@@ -13,3 +13,4 @@ LICENSE
 Dockerfile
 .dockerignore
 extra/
+vendor/
