@@ -95,6 +95,6 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 	}
 
 	for _, s := range news.Appnews.Newsitems {
-		ch <- prometheus.MustNewConstMetric(collector.newsMetric, prometheus.GaugeValue, float64(s.Date), s.Title, s.URL, s.Feedlabel)
+		ch <- prometheus.MustNewConstMetric(collector.newsMetric, prometheus.GaugeValue, float64(s.Date)*1000, s.Title, s.URL, s.Feedlabel)
 	}
 }
