@@ -2,12 +2,12 @@
 
 # CSGO Exporter
 
-[![GoDoc](https://godoc.org/github.com/kinduff/csgo_exporter?status.svg)][godoc]
-[![Go Report Card](https://goreportcard.com/badge/github.com/kinduff/csgo_exporter)][goreport]
+[![Go Reference](https://pkg.go.dev/badge/github.com/kinduff/csgo_exporter.svg?)][godoc]
+[![Go Report Card](https://goreportcard.com/badge/github.com/kinduff/csgo_exporter?)][goreport]
 [![Test / Build](https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml/badge.svg?branch=master)][workflow-c]
-[![Release](https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml/badge.svg)][workflow-r]
-[![Docker Pulls](https://img.shields.io/docker/pulls/kinduff/csgo_exporter.svg?maxAge=604800)][dockerhub]
-![GitHub all releases](https://img.shields.io/github/downloads/kinduff/csgo_exporter/total)
+[![Release](https://github.com/kinduff/csgo_exporter/actions/workflows/release.yml/badge.svg?)][workflow-r]
+[![Docker Pulls](https://img.shields.io/docker/pulls/kinduff/csgo_exporter.svg?)][dockerhub]
+[![GitHub all releases](https://img.shields.io/github/downloads/kinduff/csgo_exporter/total?)][releases]
 
 This is a Prometheus exporter for [Counter-Strike: Global Offensive][csgo]. It provides statistics from diverse categories, including last matches.
 
@@ -93,7 +93,7 @@ This exporter uses environment variables, there are no CLI support for now. The 
 [dockerhub]: https://hub.docker.com/r/kinduff/csgo_exporter
 [ghcr]: #ghcr
 [go]: https://golang.org
-[godoc]: https://godoc.org/github.com/kinduff/csgo_exporter
+[godoc]: https://pkg.go.dev/github.com/kinduff/csgo_exporter
 [goreport]: https://goreportcard.com/report/github.com/kinduff/csgo_exporter
 [releases]: https://github.com/kinduff/csgo_exporter/releases
 [steam-api]: https://steamcommunity.com/dev/apikey
