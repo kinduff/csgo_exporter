@@ -36,7 +36,7 @@ $ docker run \
   -p 7355:7355 \
   -e STEAM_API_KEY=<your-api-key> \
   -e STEAM_NAME=<your-user-name> \
-  kinduff/csgo_exporter
+  kinduff/csgo_exporter:latest
 ```
 
 Alternative, you can use `ghcr.io/kinduff/csgo_exporter` if you want to use the Github Container Registry.
