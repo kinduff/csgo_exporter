@@ -9,7 +9,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/kinduff/csgo_exporter.svg?maxAge=604800)][dockerhub]
 ![GitHub all releases](https://img.shields.io/github/downloads/kinduff/csgo_exporter/total)
 
-The CSGO Exporter allows to fetch statistics for one player from the [CS:GO][csgo] game.
+This is a Prometheus exporter for [Counter-Strike: Global Offensive][csgo]. It provides statistics from diverse categories, including last matches.
 
 ## Prerequisites
 
