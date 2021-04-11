@@ -94,7 +94,7 @@ This exporter uses environment variables, there are no CLI support for now. The 
 [ghcr]: #ghcr
 [go]: https://golang.org
 [godoc]: https://godoc.org/github.com/kinduff/csgo_exporter
-[goreport]: https://goreportcard.com/report/github.com/gustavo-iniguez-goya/opensnitch
+[goreport]: https://goreportcard.com/report/github.com/kinduff/csgo_exporter
 [releases]: https://github.com/kinduff/csgo_exporter/releases
 [steam-api]: https://steamcommunity.com/dev/apikey
 [workflow-c]: https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml
