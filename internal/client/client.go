@@ -2,11 +2,15 @@ package client
 
 import (
 	"encoding/json"
+	"encoding/xml"
+	"io/ioutil"
 	"net/http"
 
 	"github.com/kinduff/csgo_exporter/internal/model"
 
 	log "github.com/sirupsen/logrus"
+
+	"fmt"
 )
 
 type client struct {
@@ -22,6 +26,34 @@ func NewClient() *client {
 			},
 		},
 	}
+}
+
+func (client *client) DoXMLRequest(config *model.Config, target interface{}) error {
+	url := fmt.Sprintf("https://steamcommunity.com/id/%s/stats/CSGO?xml=1&tab=all&schema=1", config.SteamName)
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		log.Fatalf("An error has occurred when creating HTTP request %v", err)
+
+		return err
+	}
+
+	log.Infof("Sending HTTP request to %s", req.URL.String())
+
+	resp, err := client.httpClient.Do(req)
+	if err != nil || !(resp.StatusCode >= 200 && resp.StatusCode < 300) {
+		log.Fatalf("An error has occurred during retrieving statistics %v", err)
+
+		return err
+	}
+
+	defer resp.Body.Close()
+
+	data, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+
+	return xml.Unmarshal(data, &target)
 }
 
 // DoRequest allows to make requests to the Steam API by standarizing how it receives

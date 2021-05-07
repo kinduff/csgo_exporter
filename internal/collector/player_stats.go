@@ -1,6 +1,8 @@
 package collector
 
 import (
+	"strings"
+
 	"github.com/kinduff/csgo_exporter/internal/client"
 	"github.com/kinduff/csgo_exporter/internal/model"
 
@@ -27,7 +29,7 @@ func NewPlayerCollector(config *model.Config) *playerCollector {
 		),
 		achievementsMetric: prometheus.NewDesc("achievements_metric",
 			"Shows all the achievements from a player",
-			[]string{"name", "player"},
+			[]string{"name", "player", "title", "description"},
 			nil,
 		),
 		newsMetric: prometheus.NewDesc("news_metric",
@@ -45,6 +47,7 @@ func (collector *playerCollector) Describe(ch chan<- *prometheus.Desc) {
 }
 
 func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
+	var allPlayerAchievementsDetails = map[string]map[string]string{}
 	var allPlayerAchievements = map[string]int{}
 
 	client := client.NewClient()
@@ -86,12 +89,31 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 		player = collector.config.SteamID
 	}
 
+	achievementsDetails := model.AchievementsDetails{}
+	if err := client.DoXMLRequest(collector.config, &achievementsDetails); err != nil {
+		log.Fatal(err)
+	}
+
+	for _, s := range achievementsDetails.Achievements.Achievement {
+		inner, ok := allPlayerAchievementsDetails[s.Apiname]
+		if !ok {
+			inner = make(map[string]string)
+			allPlayerAchievementsDetails[s.Apiname] = inner
+		}
+		inner["title"] = s.Name
+		inner["description"] = s.Description
+	}
+
 	for _, s := range playerStats.PlayerStats.Stats {
+		if strings.Contains(s.Name, "GI") {
+			continue
+		}
+
 		ch <- prometheus.MustNewConstMetric(collector.statsMetric, prometheus.GaugeValue, float64(s.Value), s.Name, player)
 	}
 
 	for name, count := range allPlayerAchievements {
-		ch <- prometheus.MustNewConstMetric(collector.achievementsMetric, prometheus.GaugeValue, float64(count), name, player)
+		ch <- prometheus.MustNewConstMetric(collector.achievementsMetric, prometheus.GaugeValue, float64(count), name, player, allPlayerAchievementsDetails[strings.ToLower(name)]["title"], allPlayerAchievementsDetails[strings.ToLower(name)]["description"])
 	}
 
 	for _, s := range news.Appnews.Newsitems {
