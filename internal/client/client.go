@@ -66,6 +66,8 @@ func getAPIEndpoint(endpoint string) string {
 		path = "/ISteamUser/ResolveVanityURL/v0001"
 	case "news":
 		path = "/ISteamNews/GetNewsForApp/v0002"
+	case "gameInfo":
+		path = "/IPlayerService/GetOwnedGames/v1"
 	}
 
 	return baseUrl + path
@@ -86,6 +88,9 @@ func getAPIQueryParams(endpoint string, config *model.Config, req *http.Request)
 		q.Add("vanityurl", config.SteamName)
 	case "news":
 		q.Add("maxlength", "240")
+	case "gameInfo":
+		q.Add("steamid", config.SteamID)
+		q.Add("appids_filter[0]", "730")
 	}
 
 	q.Add(gameIdKey, "730")

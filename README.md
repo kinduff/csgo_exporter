@@ -80,6 +80,7 @@ This exporter uses environment variables, there are no CLI support for now. The 
 | -------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `csgo_stats_metric`        | All the stats from the player, it includes last_match data, totals per weapon, among other cool things |
 | `csgo_achievements_metric` | All achievements done by the player, with value `1` or `0` for achieved or not                         |
+| `csgo_playtime_metric`     | Hours spent playing the game in minutes in different types, includes stats for each OS                 |
 | `csgo_news_metric`         | The latest news from the CS:GO community, can be used in a table. Value is an epoch                    |
 
 ## Footnotes

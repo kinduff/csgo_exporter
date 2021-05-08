@@ -15,6 +15,7 @@ type playerCollector struct {
 	config             *model.Config
 	statsMetric        *prometheus.Desc
 	achievementsMetric *prometheus.Desc
+	playtimeMetric     *prometheus.Desc
 	newsMetric         *prometheus.Desc
 }
 
@@ -32,6 +33,11 @@ func NewPlayerCollector(config *model.Config) *playerCollector {
 			[]string{"name", "player", "title", "description"},
 			nil,
 		),
+		playtimeMetric: prometheus.NewDesc("playtime_metric",
+			"Shows the playtime the user has in the game in minutes",
+			[]string{"type", "player"},
+			nil,
+		),
 		newsMetric: prometheus.NewDesc("news_metric",
 			"Shows the latest news from CSGO",
 			[]string{"title", "url", "feedlabel"},
@@ -43,6 +49,7 @@ func NewPlayerCollector(config *model.Config) *playerCollector {
 func (collector *playerCollector) Describe(ch chan<- *prometheus.Desc) {
 	ch <- collector.statsMetric
 	ch <- collector.achievementsMetric
+	ch <- collector.playtimeMetric
 	ch <- collector.newsMetric
 }
 
@@ -60,6 +67,11 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 		collector.config.SteamID = ResolveVanityUrl.Response.Steamid
 	}
 
+	player := collector.config.SteamName
+	if player == "" {
+		player = collector.config.SteamID
+	}
+
 	playerStats := model.PlayerStats{}
 	if err := client.DoAPIRequest("stats", collector.config, &playerStats); err != nil {
 		log.Fatal(err)
@@ -75,6 +87,16 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 		log.Fatal(err)
 	}
 
+	gameInfo := model.GameInfo{}
+	if err := client.DoAPIRequest("gameInfo", collector.config, &gameInfo); err != nil {
+		log.Fatal(err)
+	}
+
+	achievementsDetails := model.AchievementsDetails{}
+	if err := client.DoXMLRequest("achievementsDetails", collector.config, &achievementsDetails); err != nil {
+		log.Fatal(err)
+	}
+
 	for _, s := range archivements.AchievementPercentages.Achievements {
 		allPlayerAchievements[s.Name] = 0
 	}
@@ -82,16 +104,6 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 	playerAchievements := playerStats.PlayerStats.Achievements
 	for _, s := range playerAchievements {
 		allPlayerAchievements[s.Name] = 1
-	}
-
-	player := collector.config.SteamName
-	if player == "" {
-		player = collector.config.SteamID
-	}
-
-	achievementsDetails := model.AchievementsDetails{}
-	if err := client.DoXMLRequest("achievementsDetails", collector.config, &achievementsDetails); err != nil {
-		log.Fatal(err)
 	}
 
 	for _, s := range achievementsDetails.Achievements.Achievement {
@@ -115,6 +127,13 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 	for name, count := range allPlayerAchievements {
 		ch <- prometheus.MustNewConstMetric(collector.achievementsMetric, prometheus.GaugeValue, float64(count), name, player, allPlayerAchievementsDetails[strings.ToLower(name)]["title"], allPlayerAchievementsDetails[strings.ToLower(name)]["description"])
 	}
+
+	playData := gameInfo.Response.Games[0]
+	ch <- prometheus.MustNewConstMetric(collector.playtimeMetric, prometheus.CounterValue, float64(playData.Playtime2Weeks), "last_2_weeks", player)
+	ch <- prometheus.MustNewConstMetric(collector.playtimeMetric, prometheus.CounterValue, float64(playData.PlaytimeForever), "forever", player)
+	ch <- prometheus.MustNewConstMetric(collector.playtimeMetric, prometheus.CounterValue, float64(playData.PlaytimeWindowsForever), "windows_forever", player)
+	ch <- prometheus.MustNewConstMetric(collector.playtimeMetric, prometheus.CounterValue, float64(playData.PlaytimeMacForever), "mac_forever", player)
+	ch <- prometheus.MustNewConstMetric(collector.playtimeMetric, prometheus.CounterValue, float64(playData.PlaytimeLinuxForever), "linux_forever", player)
 
 	for _, s := range news.Appnews.Newsitems {
 		ch <- prometheus.MustNewConstMetric(collector.newsMetric, prometheus.GaugeValue, float64(s.Date)*1000, s.Title, s.URL, s.Feedlabel)
