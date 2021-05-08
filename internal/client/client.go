@@ -124,7 +124,7 @@ func (client *client) DoXMLRequest(endpoint string, config *model.Config, target
 
 func getXMLEndpoint(endpoint string, config *model.Config) string {
 	var path string
-	baseUrl := fmt.Sprintf("https://steamcommunity.com/id/%s", config.SteamName)
+	baseUrl := fmt.Sprintf("https://steamcommunity.com/profiles/%s", config.SteamID)
 
 	switch endpoint {
 	case "achievementsDetails":
