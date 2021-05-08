@@ -3,9 +3,6 @@ package model
 // AchievementsDetails stores a struct of a XML response to complement the response
 // from the API, since the other response only contains raw data, this adds more detail.
 type AchievementsDetails struct {
-	Stats struct {
-		HoursPlayed string `xml:"hoursPlayed"`
-	} `xml:"stats"`
 	Achievements struct {
 		Achievement []struct {
 			Closed      string `xml:"closed,attr"`
