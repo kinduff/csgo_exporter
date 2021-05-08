@@ -54,24 +54,24 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 
 	if collector.config.SteamID == "" {
 		ResolveVanityUrl := model.ResolveVanityUrl{}
-		if err := client.DoRequest("id", collector.config, &ResolveVanityUrl); err != nil {
+		if err := client.DoAPIRequest("id", collector.config, &ResolveVanityUrl); err != nil {
 			log.Fatal(err)
 		}
 		collector.config.SteamID = ResolveVanityUrl.Response.Steamid
 	}
 
 	playerStats := model.PlayerStats{}
-	if err := client.DoRequest("stats", collector.config, &playerStats); err != nil {
+	if err := client.DoAPIRequest("stats", collector.config, &playerStats); err != nil {
 		log.Fatal(err)
 	}
 
 	archivements := model.Achievements{}
-	if err := client.DoRequest("achievements", collector.config, &archivements); err != nil {
+	if err := client.DoAPIRequest("achievements", collector.config, &archivements); err != nil {
 		log.Fatal(err)
 	}
 
 	news := model.News{}
-	if err := client.DoRequest("news", collector.config, &news); err != nil {
+	if err := client.DoAPIRequest("news", collector.config, &news); err != nil {
 		log.Fatal(err)
 	}
 
@@ -90,7 +90,7 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 	}
 
 	achievementsDetails := model.AchievementsDetails{}
-	if err := client.DoXMLRequest(collector.config, &achievementsDetails); err != nil {
+	if err := client.DoXMLRequest("achievementsDetails", collector.config, &achievementsDetails); err != nil {
 		log.Fatal(err)
 	}
 
