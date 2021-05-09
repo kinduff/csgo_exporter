@@ -121,11 +121,11 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 			continue
 		}
 
-		ch <- prometheus.MustNewConstMetric(collector.statsMetric, prometheus.GaugeValue, float64(s.Value), s.Name, player)
+		ch <- prometheus.MustNewConstMetric(collector.statsMetric, prometheus.CounterValue, float64(s.Value), s.Name, player)
 	}
 
 	for name, count := range allPlayerAchievements {
-		ch <- prometheus.MustNewConstMetric(collector.achievementsMetric, prometheus.GaugeValue, float64(count), name, player, allPlayerAchievementsDetails[strings.ToLower(name)]["title"], allPlayerAchievementsDetails[strings.ToLower(name)]["description"])
+		ch <- prometheus.MustNewConstMetric(collector.achievementsMetric, prometheus.CounterValue, float64(count), name, player, allPlayerAchievementsDetails[strings.ToLower(name)]["title"], allPlayerAchievementsDetails[strings.ToLower(name)]["description"])
 	}
 
 	playData := gameInfo.Response.Games[0]
@@ -136,6 +136,6 @@ func (collector *playerCollector) Collect(ch chan<- prometheus.Metric) {
 	ch <- prometheus.MustNewConstMetric(collector.playtimeMetric, prometheus.CounterValue, float64(playData.PlaytimeLinuxForever), "linux_forever", player)
 
 	for _, s := range news.Appnews.Newsitems {
-		ch <- prometheus.MustNewConstMetric(collector.newsMetric, prometheus.GaugeValue, float64(s.Date)*1000, s.Title, s.URL, s.Feedlabel)
+		ch <- prometheus.MustNewConstMetric(collector.newsMetric, prometheus.CounterValue, float64(s.Date)*1000, s.Title, s.URL, s.Feedlabel)
 	}
 }
