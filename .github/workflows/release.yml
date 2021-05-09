@@ -40,7 +40,7 @@ jobs:
           goos: darwin
     steps:
     - uses: actions/checkout@v2
-    - uses: wangyoucao577/go-release-action@v1.16
+    - uses: wangyoucao577/go-release-action@v1.17
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: ${{ matrix.goos }}
@@ -48,7 +48,6 @@ jobs:
         goversion: "1.16"
         build_flags: -gcflags=all=-l
         ldflags: -w -s
-        project_path: "./cmd/csgo_exporter"
         binary_name: "csgo_exporter"
         extra_files: LICENSE README.md
   build:

@@ -11,7 +11,7 @@ RUN apk --no-cache --virtual .build-deps add git alpine-sdk
 COPY . .
 
 RUN GO111MODULE=on go mod vendor
-RUN CGO_ENABLED=0 GOOS=$OS GOARCH=$ARCH go build -ldflags '-s -w' -o binary ./cmd/csgo_exporter
+RUN CGO_ENABLED=0 GOOS=$OS GOARCH=$ARCH go build -ldflags '-s -w' -o binary .
 
 FROM $IMAGE
 
