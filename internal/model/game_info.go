@@ -3,7 +3,6 @@ package model
 type GameInfo struct {
 	Response struct {
 		Games []struct {
-			Appid                  int `json:"appid"`
 			Playtime2Weeks         int `json:"playtime_2weeks"`
 			PlaytimeForever        int `json:"playtime_forever"`
 			PlaytimeWindowsForever int `json:"playtime_windows_forever"`
