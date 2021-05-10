@@ -7,7 +7,7 @@ type AchievementsDetails struct {
 		Achievement []struct {
 			Closed      string `xml:"closed,attr"`
 			Name        string `xml:"name"`
-			Apiname     string `xml:"apiname"`
+			APIName     string `xml:"apiname"`
 			Description string `xml:"description"`
 		} `xml:"achievement"`
 	} `xml:"achievements"`

@@ -30,9 +30,6 @@ func (collector *collector) Scrape() {
 }
 
 func (collector *collector) setMetrics() {
-	var allPlayerAchievementsDetails = map[string]map[string]string{}
-	var allPlayerAchievements = map[string]int{}
-
 	client := client.NewClient()
 
 	if collector.config.SteamID == "" {
@@ -53,11 +50,6 @@ func (collector *collector) setMetrics() {
 		log.Fatal(err)
 	}
 
-	archivements := model.Achievements{}
-	if err := client.DoAPIRequest("achievements", collector.config, &archivements); err != nil {
-		log.Fatal(err)
-	}
-
 	news := model.News{}
 	if err := client.DoAPIRequest("news", collector.config, &news); err != nil {
 		log.Fatal(err)
@@ -73,23 +65,27 @@ func (collector *collector) setMetrics() {
 		log.Fatal(err)
 	}
 
-	for _, s := range archivements.AchievementPercentages.Achievements {
-		allPlayerAchievements[s.Name] = 0
+	allPlayerAchievements := map[string]model.Achievement{}
+
+	for _, s := range achievementsDetails.Achievements.Achievement {
+		allPlayerAchievements[s.APIName] = model.Achievement{
+			APIName:     s.APIName,
+			Achieved:    0,
+			Title:       s.Name,
+			Description: s.Description,
+		}
 	}
 
 	playerAchievements := playerStats.PlayerStats.Achievements
 	for _, s := range playerAchievements {
-		allPlayerAchievements[s.Name] = 1
-	}
+		t := allPlayerAchievements[strings.ToLower(s.Name)]
 
-	for _, s := range achievementsDetails.Achievements.Achievement {
-		inner, ok := allPlayerAchievementsDetails[s.Apiname]
-		if !ok {
-			inner = make(map[string]string)
-			allPlayerAchievementsDetails[s.Apiname] = inner
+		allPlayerAchievements[t.APIName] = model.Achievement{
+			APIName:     t.APIName,
+			Achieved:    1,
+			Title:       t.Title,
+			Description: t.Description,
 		}
-		inner["title"] = s.Name
-		inner["description"] = s.Description
 	}
 
 	for _, s := range playerStats.PlayerStats.Stats {
@@ -100,8 +96,8 @@ func (collector *collector) setMetrics() {
 		metrics.Stats.WithLabelValues(player, s.Name).Set(float64(s.Value))
 	}
 
-	for name, count := range allPlayerAchievements {
-		metrics.Achievements.WithLabelValues(player, name, allPlayerAchievementsDetails[strings.ToLower(name)]["title"], allPlayerAchievementsDetails[strings.ToLower(name)]["description"]).Set(float64(count))
+	for _, s := range allPlayerAchievements {
+		metrics.Achievements.WithLabelValues(player, s.APIName, s.Title, s.Description).Set(float64(s.Achieved))
 	}
 
 	playData := gameInfo.Response.Games[0]
