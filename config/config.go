@@ -1,6 +1,7 @@
 package config
 
 import (
+	"fmt"
 	"os"
 	"reflect"
 	"time"
@@ -39,7 +40,7 @@ func getEnv(key, fallback string) string {
 
 func show(config model.Config) {
 	log.Println("=============================================")
-	log.Println("                CSGO Exporter                ")
+	log.Println("         CSGO Exporter Configuration         ")
 	log.Println("=============================================")
 
 	val := reflect.ValueOf(&config).Elem()
@@ -47,9 +48,22 @@ func show(config model.Config) {
 	for i := 0; i < val.NumField(); i++ {
 		valueField := val.Field(i)
 		typeField := val.Type().Field(i)
+		value := fmt.Sprintf("%v", valueField.Interface())
 
-		log.Printf("%s: %s", typeField.Name, valueField.Interface())
+		if typeField.Name == "ApiKey" {
+			value = maskLeft(value)
+		}
+
+		log.Printf("%s: %s", typeField.Name, value)
 	}
 
 	log.Println("=============================================")
+}
+
+func maskLeft(s string) string {
+	rs := []rune(s)
+	for i := 6; i < len(rs); i++ {
+		rs[i] = '*'
+	}
+	return string(rs)
 }
