@@ -54,7 +54,9 @@ func show(config model.Config) {
 			value = maskLeft(value)
 		}
 
-		log.Printf("%s: %s", typeField.Name, value)
+		if value != "" {
+			log.Printf("%s: %s", typeField.Name, value)
+		}
 	}
 
 	log.Println("=============================================")
