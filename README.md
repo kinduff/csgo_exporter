@@ -60,7 +60,7 @@ $ GO111MODULE=on go mod vendor
 Then, build the binary:
 
 ```shell
-$ go build -o csgo_exporter ./cmd/csgo_exporter
+$ go build -o csgo_exporter .
 ```
 
 ## Configuration
