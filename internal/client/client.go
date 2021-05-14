@@ -12,13 +12,13 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-type client struct {
+type Client struct {
 	httpClient http.Client
 }
 
 // NewClient provides an interface to make HTTP requests to the Steam API.
-func NewClient() *client {
-	return &client{
+func NewClient() *Client {
+	return &Client{
 		httpClient: http.Client{
 			CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
@@ -29,7 +29,7 @@ func NewClient() *client {
 
 // DoAPIRequest allows to make requests to the Steam API by standarizing how it receives
 // parameters, and to which endpoint it should do the call.
-func (client *client) DoAPIRequest(endpoint string, config *model.Config, target interface{}) error {
+func (client *Client) DoAPIRequest(endpoint string, config *model.Config, target interface{}) error {
 	req, err := http.NewRequest("GET", getAPIEndpoint(endpoint), nil)
 	if err != nil {
 		log.Fatalf("An error has occurred when creating HTTP request %v", err)
@@ -100,7 +100,7 @@ func getAPIQueryParams(endpoint string, config *model.Config, req *http.Request)
 
 // DoXMLRequest allows to make requests to the Steam web API, this API is not documented,
 // and it's a hacky way to access certain data in XML. It relies on the user having its profile public
-func (client *client) DoXMLRequest(endpoint string, config *model.Config, target interface{}) error {
+func (client *Client) DoXMLRequest(endpoint string, config *model.Config, target interface{}) error {
 	req, err := http.NewRequest("GET", getXMLEndpoint(endpoint, config), nil)
 	if err != nil {
 		log.Fatalf("An error has occurred when creating HTTP request %v", err)
