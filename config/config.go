@@ -1,57 +1,71 @@
 package config
 
 import (
+	"context"
 	"fmt"
-	"os"
 	"reflect"
 	"time"
 
-	"github.com/kinduff/csgo_exporter/internal/model"
+	"github.com/heetch/confita"
+	"github.com/heetch/confita/backend"
+	"github.com/heetch/confita/backend/env"
+	"github.com/heetch/confita/backend/flags"
 
 	log "github.com/sirupsen/logrus"
 )
 
+// Config is the exporter configuration.
+type Config struct {
+	HTTPPort       string        `config:"http_port,short=p"`
+	APIKey         string        `config:"api_key,required"`
+	SteamID        string        `config:"steam_id,required"`
+	SteamName      string        `config:"steam_name"`
+	ScrapeInterval time.Duration `config:"scrape_interval,short=i,description=scrape interval in seconds"`
+}
+
+func getDefaultConfig() *Config {
+	return &Config{
+		HTTPPort:       "9617",
+		APIKey:         "",
+		SteamID:        "",
+		SteamName:      "",
+		ScrapeInterval: 30 * time.Second,
+	}
+}
+
 // Load method loads the configuration by using environment variables.
-func Load() model.Config {
-	config := model.Config{}
-
-	config.HTTPPort = getEnv("HTTP_PORT", "7355")
-	config.ApiKey = getEnv("STEAM_API_KEY", "")
-	config.SteamID = getEnv("STEAM_ID", "")
-	config.SteamName = getEnv("STEAM_NAME", "")
-	interval, _ := time.ParseDuration(getEnv("SCRAPE_INTERVAL", "30s"))
-	config.ScrapeInterval = interval
-
-	if (config.SteamID == "" && config.SteamName == "") || config.ApiKey == "" {
-		log.Fatal("Please provide a STEAM_API_KEY, and a STEAM_ID or STEAM_NAME")
-		os.Exit(1)
+func Load() *Config {
+	loaders := []backend.Backend{
+		env.NewBackend(),
+		flags.NewBackend(),
 	}
 
-	show(config)
+	loader := confita.NewLoader(loaders...)
 
-	return config
-}
-
-func getEnv(key, fallback string) string {
-	if value, ok := os.LookupEnv(key); ok {
-		return value
+	cfg := getDefaultConfig()
+	err := loader.Load(context.Background(), cfg)
+	if err != nil {
+		log.Fatal(err)
 	}
-	return fallback
+
+	cfg.show()
+
+	return cfg
 }
 
-func show(config model.Config) {
+func (c Config) show() {
 	log.Println("=============================================")
 	log.Println("         CSGO Exporter Configuration         ")
 	log.Println("=============================================")
 
-	val := reflect.ValueOf(&config).Elem()
+	val := reflect.ValueOf(&c).Elem()
 
 	for i := 0; i < val.NumField(); i++ {
 		valueField := val.Field(i)
 		typeField := val.Type().Field(i)
 		value := fmt.Sprintf("%v", valueField.Interface())
 
-		if typeField.Name == "ApiKey" {
+		if typeField.Name == "APIKey" {
 			value = maskLeft(value)
 		}
 

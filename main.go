@@ -22,7 +22,7 @@ func main() {
 
 	metrics.Init()
 
-	client := collector.NewCollector(&conf)
+	client := collector.NewCollector(conf)
 	go client.Scrape()
 
 	initHTTPServer(conf.HTTPPort)
