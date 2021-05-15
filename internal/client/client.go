@@ -12,6 +12,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Client is a struct that contains an HTTP Client
 type Client struct {
 	httpClient http.Client
 }

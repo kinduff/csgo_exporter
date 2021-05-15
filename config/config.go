@@ -11,6 +11,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Load method loads the configuration by using environment variables.
 func Load() model.Config {
 	config := model.Config{}
 
