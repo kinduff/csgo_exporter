@@ -4,6 +4,7 @@ go 1.16
 
 require (
 	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/heetch/confita v0.10.0
 	github.com/prometheus/client_golang v1.10.0
 	github.com/prometheus/common v0.24.0 // indirect
 	github.com/sirupsen/logrus v1.8.1
