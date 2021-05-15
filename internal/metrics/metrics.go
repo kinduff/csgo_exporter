@@ -9,6 +9,7 @@ import (
 var (
 	namespace = "csgo"
 
+	// Stats - Miscellaneous stats of a player from all its matches.
 	Stats = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name:      "stats_metric",
@@ -17,6 +18,8 @@ var (
 		},
 		[]string{"player", "name"},
 	)
+
+	// Achievements - All achievements a player can have, including the ones it has.
 	Achievements = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name:      "achievements_metric",
@@ -25,6 +28,8 @@ var (
 		},
 		[]string{"player", "name", "title", "description"},
 	)
+
+	// Playtime - Hours spent playing the game in minutes from different OS.
 	Playtime = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name:      "playtime_metric",
@@ -33,6 +38,8 @@ var (
 		},
 		[]string{"player", "type"},
 	)
+
+	// News - The latest news from the CSGO community and Valve.
 	News = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name:      "news_metric",

@@ -1,5 +1,7 @@
 package model
 
+// GameInfo stores information about the game itself from a player perspective,
+// this includes the playtime in different categories including per OS.
 type GameInfo struct {
 	Response struct {
 		Games []struct {
