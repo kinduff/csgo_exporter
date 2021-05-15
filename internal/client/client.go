@@ -7,8 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/kinduff/csgo_exporter/internal/model"
-
+	"github.com/kinduff/csgo_exporter/config"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -30,7 +29,7 @@ func NewClient() *Client {
 
 // DoAPIRequest allows to make requests to the Steam API by standarizing how it receives
 // parameters, and to which endpoint it should do the call.
-func (client *Client) DoAPIRequest(endpoint string, config *model.Config, target interface{}) error {
+func (client *Client) DoAPIRequest(endpoint string, config *config.Config, target interface{}) error {
 	req, err := http.NewRequest("GET", getAPIEndpoint(endpoint), nil)
 	if err != nil {
 		log.Fatalf("An error has occurred when creating HTTP request %v", err)
@@ -74,9 +73,9 @@ func getAPIEndpoint(endpoint string) string {
 	return baseUrl + path
 }
 
-func getAPIQueryParams(endpoint string, config *model.Config, req *http.Request) string {
+func getAPIQueryParams(endpoint string, config *config.Config, req *http.Request) string {
 	q := req.URL.Query()
-	q.Add("key", config.ApiKey)
+	q.Add("key", config.APIKey)
 
 	gameIdKey := "appid"
 
@@ -101,7 +100,7 @@ func getAPIQueryParams(endpoint string, config *model.Config, req *http.Request)
 
 // DoXMLRequest allows to make requests to the Steam web API, this API is not documented,
 // and it's a hacky way to access certain data in XML. It relies on the user having its profile public
-func (client *Client) DoXMLRequest(endpoint string, config *model.Config, target interface{}) error {
+func (client *Client) DoXMLRequest(endpoint string, config *config.Config, target interface{}) error {
 	req, err := http.NewRequest("GET", getXMLEndpoint(endpoint, config), nil)
 	if err != nil {
 		log.Fatalf("An error has occurred when creating HTTP request %v", err)
@@ -128,7 +127,7 @@ func (client *Client) DoXMLRequest(endpoint string, config *model.Config, target
 	return xml.Unmarshal(data, &target)
 }
 
-func getXMLEndpoint(endpoint string, config *model.Config) string {
+func getXMLEndpoint(endpoint string, config *config.Config) string {
 	var path string
 	baseUrl := fmt.Sprintf("https://steamcommunity.com/profiles/%s", config.SteamID)
 

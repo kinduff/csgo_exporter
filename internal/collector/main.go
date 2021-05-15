@@ -3,12 +3,13 @@ package collector
 import (
 	"time"
 
+	"github.com/kinduff/csgo_exporter/config"
 	"github.com/kinduff/csgo_exporter/internal/client"
 	"github.com/kinduff/csgo_exporter/internal/model"
 )
 
 type collector struct {
-	config                *model.Config
+	config                *config.Config
 	playerStats           model.PlayerStats
 	news                  model.News
 	gameInfo              model.GameInfo
@@ -17,7 +18,7 @@ type collector struct {
 }
 
 // NewCollector provides an interface to collector player statistics.
-func NewCollector(config *model.Config) *collector {
+func NewCollector(config *config.Config) *collector {
 	return &collector{
 		config:                config,
 		playerStats:           model.PlayerStats{},
