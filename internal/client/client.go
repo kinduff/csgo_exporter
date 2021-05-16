@@ -6,8 +6,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/kinduff/csgo_exporter/config"
+	"github.com/kinduff/csgo_exporter/internal/model"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -39,7 +41,7 @@ func (client *Client) DoAPIRequest(endpoint string, config *config.Config, targe
 
 	req.URL.RawQuery = getAPIQueryParams(endpoint, config, req)
 
-	log.Infof("Sending HTTP request to %s", req.URL.String())
+	log.Infof("Sending HTTP request to %s", strings.Replace(req.URL.String(), config.APIKey, "[FILTERED]", 1))
 
 	resp, err := client.httpClient.Do(req)
 	if err != nil || !(resp.StatusCode >= 200 && resp.StatusCode < 300) {
@@ -137,4 +139,15 @@ func getXMLEndpoint(endpoint string, config *config.Config) string {
 	}
 
 	return baseUrl + path
+}
+
+func (client *Client) RetrieveSteamID(conf *config.Config) string {
+	log.Info("Retrieving SteamID before initializing")
+
+	ResolveVanityUrl := model.ResolveVanityUrl{}
+	if err := client.DoAPIRequest("id", conf, &ResolveVanityUrl); err != nil {
+		log.Fatal(err)
+	}
+
+	return ResolveVanityUrl.Response.Steamid
 }
