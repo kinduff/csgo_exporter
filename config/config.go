@@ -18,7 +18,7 @@ import (
 type Config struct {
 	HTTPPort       string        `config:"http_port,short=p"`
 	APIKey         string        `config:"api_key,required"`
-	SteamID        string        `config:"steam_id,required"`
+	SteamID        string        `config:"steam_id"`
 	SteamName      string        `config:"steam_name"`
 	ScrapeInterval time.Duration `config:"scrape_interval,short=i,description=scrape interval in seconds"`
 }
@@ -48,12 +48,11 @@ func Load() *Config {
 		log.Fatal(err)
 	}
 
-	cfg.show()
-
 	return cfg
 }
 
-func (c Config) show() {
+// Show method displays all the load configuration
+func (c Config) Show() {
 	log.Println("=============================================")
 	log.Println("         CSGO Exporter Configuration         ")
 	log.Println("=============================================")
@@ -66,7 +65,7 @@ func (c Config) show() {
 		value := fmt.Sprintf("%v", valueField.Interface())
 
 		if typeField.Name == "APIKey" {
-			value = maskLeft(value)
+			value = "[FILTERED]"
 		}
 
 		if value != "" {
@@ -75,12 +74,4 @@ func (c Config) show() {
 	}
 
 	log.Println("=============================================")
-}
-
-func maskLeft(s string) string {
-	rs := []rune(s)
-	for i := 6; i < len(rs); i++ {
-		rs[i] = '*'
-	}
-	return string(rs)
 }
