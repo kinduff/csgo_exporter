@@ -41,7 +41,7 @@ func (client *Client) DoAPIRequest(endpoint string, config *config.Config, targe
 
 	req.URL.RawQuery = getAPIQueryParams(endpoint, config, req)
 
-	log.Infof("Sending HTTP request to %s", strings.Replace(req.URL.String(), config.APIKey, "[FILTERED]", 1))
+	log.Infof("Sending HTTP request to %s", strings.Replace(req.URL.String(), config.SteamAPIKey, "[FILTERED]", 1))
 
 	resp, err := client.httpClient.Do(req)
 	if err != nil || !(resp.StatusCode >= 200 && resp.StatusCode < 300) {
@@ -77,7 +77,7 @@ func getAPIEndpoint(endpoint string) string {
 
 func getAPIQueryParams(endpoint string, config *config.Config, req *http.Request) string {
 	q := req.URL.Query()
-	q.Add("key", config.APIKey)
+	q.Add("key", config.SteamAPIKey)
 
 	gameIdKey := "appid"
 

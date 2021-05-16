@@ -17,7 +17,7 @@ import (
 // Config is the exporter configuration.
 type Config struct {
 	HTTPPort       string        `config:"http_port,short=p"`
-	APIKey         string        `config:"api_key,required"`
+	SteamAPIKey    string        `config:"steam_api_key,required"`
 	SteamID        string        `config:"steam_id"`
 	SteamName      string        `config:"steam_name"`
 	ScrapeInterval time.Duration `config:"scrape_interval,short=i,description=scrape interval in seconds"`
@@ -26,7 +26,7 @@ type Config struct {
 func getDefaultConfig() *Config {
 	return &Config{
 		HTTPPort:       "9617",
-		APIKey:         "",
+		SteamAPIKey:    "",
 		SteamID:        "",
 		SteamName:      "",
 		ScrapeInterval: 30 * time.Second,
@@ -64,7 +64,7 @@ func (c Config) Show() {
 		typeField := val.Type().Field(i)
 		value := fmt.Sprintf("%v", valueField.Interface())
 
-		if typeField.Name == "APIKey" {
+		if typeField.Name == "SteamAPIKey" {
 			value = "[FILTERED]"
 		}
 
