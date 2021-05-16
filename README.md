@@ -1,4 +1,4 @@
-![](extra/logo.png)
+![](extra/banner.png)
 
 # CSGO Exporter
 
