@@ -19,6 +19,16 @@ var (
 		[]string{"player", "name"},
 	)
 
+	// LastMatch - Miscellaneous stats of a player from all its matches.
+	LastMatch = prometheus.NewGaugeVec(
+		prometheus.GaugeOpts{
+			Name:      "last_match_metric",
+			Help:      "Shows metrics from a player last match",
+			Namespace: namespace,
+		},
+		[]string{"player", "type"},
+	)
+
 	// Achievements - All achievements a player can have, including the ones it has.
 	Achievements = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
@@ -56,6 +66,7 @@ func Init() {
 	prometheus.Unregister(prometheus.NewProcessCollector(prometheus.ProcessCollectorOpts{}))
 
 	initMetric("stats", Stats)
+	initMetric("last_match", LastMatch)
 	initMetric("achievements", Achievements)
 	initMetric("playtime", Playtime)
 	initMetric("news", News)
