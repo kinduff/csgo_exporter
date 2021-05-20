@@ -19,7 +19,7 @@ var (
 		[]string{"player", "name"},
 	)
 
-	// LastMatch - Miscellaneous stats of a player from all its matches.
+	// LastMatch - Stats of a player from its last match.
 	LastMatch = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
 			Name:      "last_match_metric",
@@ -27,6 +27,26 @@ var (
 			Namespace: namespace,
 		},
 		[]string{"player", "type"},
+	)
+
+	// TotalShots - Total shots per weapon.
+	TotalShots = prometheus.NewGaugeVec(
+		prometheus.GaugeOpts{
+			Name:      "total_shots_metric",
+			Help:      "Shows total shots from a player per weapon ",
+			Namespace: namespace,
+		},
+		[]string{"player", "name"},
+	)
+
+	// TotalKills - Total kills per weapon.
+	TotalKills = prometheus.NewGaugeVec(
+		prometheus.GaugeOpts{
+			Name:      "total_kills_metric",
+			Help:      "Shows total kills from a player per weapon ",
+			Namespace: namespace,
+		},
+		[]string{"player", "name"},
 	)
 
 	// Achievements - All achievements a player can have, including the ones it has.
@@ -67,6 +87,8 @@ func Init() {
 
 	initMetric("stats", Stats)
 	initMetric("last_match", LastMatch)
+	initMetric("total_shots", TotalShots)
+	initMetric("total_kills", TotalKills)
 	initMetric("achievements", Achievements)
 	initMetric("playtime", Playtime)
 	initMetric("news", News)
