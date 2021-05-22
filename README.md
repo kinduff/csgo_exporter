@@ -12,11 +12,13 @@
 
 This is a Prometheus exporter for [Counter-Strike: Global Offensive][csgo]. It provides statistics from diverse categories, including last matches.
 
+An example of the output of this exporter can be found [here][metrics_example].
+
 ## Prerequisites
 
 One of the two, depending on your running method.
 
-* [Go][go], `>= 1.13`
+* [Go][go] `>= 1.13`
 * [Docker][docker]
 
 ## Running this exporter
@@ -81,6 +83,8 @@ You can use both environment variables or parameters in both the binary or the d
 | Metric name                | Description                                                                                            |
 |----------------------------|--------------------------------------------------------------------------------------------------------|
 | `csgo_stats_metric`        | All the stats from the player, it includes last_match data, totals per weapon, among other cool things |
+| `csgo_total_kills_metric`  | Total shots from a player per weapon                                                                   |
+| `csgo_total_shots_metric`  | Total kills from a player per weapon                                                                   |
 | `csgo_achievements_metric` | All achievements done by the player, with value `1` or `0` for achieved or not                         |
 | `csgo_playtime_metric`     | Hours spent playing the game in minutes in different types, includes stats for each OS                 |
 | `csgo_news_metric`         | The latest news from the CS: GO community, can be used in a table. Value is an epoch                   |
@@ -102,3 +106,4 @@ You can use both environment variables or parameters in both the binary or the d
 [releases]: https://github.com/kinduff/csgo_exporter/releases
 [steam-api]: https://steamcommunity.com/dev/apikey
 [workflow-c]: https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml
+[metrics_example]: extra/metrics_example.txt
