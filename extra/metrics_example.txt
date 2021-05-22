@@ -1,0 +1,496 @@
+# HELP csgo_achievements_metric Shows all the achievements from a player
+# TYPE csgo_achievements_metric gauge
+csgo_achievements_metric{description="As the last living Terrorist, distract a defuser long enough for the bomb to explode",name="goose_chase",title="Wild Gooseman Chase"} 1
+csgo_achievements_metric{description="Be the first player to get a kill in an Arms Race or Demolition match",name="gun_game_first_kill",title="FIRST!"} 1
+csgo_achievements_metric{description="Be the last player alive in a round with five players on your team",name="last_player_alive",title="War of Attrition"} 1
+csgo_achievements_metric{description="Blind an enemy player who then kills a teammate",name="cause_friendly_fire_with_flashbang",title="The Road to Hell"} 1
+csgo_achievements_metric{description="Defuse 100 bombs successfully",name="bomb_defuse_low",title="The Hurt Blocker"} 1
+csgo_achievements_metric{description="Defuse five bombs in Demolition mode",name="tr_bomb_defuse_low",title="Quick Cut"} 1
+csgo_achievements_metric{description="Do at least 95% damage to an enemy who is then killed by a another player",name="damage_no_kill",title="Primer"} 1
+csgo_achievements_metric{description="Dominate an enemy",name="dominations_low",title="Repeat Offender"} 1
+csgo_achievements_metric{description="Dominate ten enemies",name="dominations_high",title="Decimator"} 1
+csgo_achievements_metric{description="Dominate three enemies simultaneously",name="concurrent_dominations",title="Hat Trick"} 1
+csgo_achievements_metric{description="Donate 100 weapons to your teammates",name="donate_weapons",title="Killanthropist"} 1
+csgo_achievements_metric{description="Earn $2,500,000 total cash",name="earn_money_med",title="Spoils of War"} 1
+csgo_achievements_metric{description="Earn $50,000 total cash",name="earn_money_low",title="War Bonds"} 1
+csgo_achievements_metric{description="Earn $50,000,000 total cash",name="earn_money_high",title="Blood Money"} 1
+csgo_achievements_metric{description="Earn 100 achievements",name="medalist",title="Awardist"} 1
+csgo_achievements_metric{description="Get a kill with every weapon",name="kill_with_every_weapon",title="Expert Marksman"} 1
+csgo_achievements_metric{description="Get kills with five different guns in a single round",name="kills_with_multiple_guns",title="Variety Hour"} 1
+csgo_achievements_metric{description="In Classic mode, kill five enemies in a single round",name="kill_enemy_team",title="The Cleaner"} 1
+csgo_achievements_metric{description="In Classic mode, kill four enemy players within fifteen seconds",name="killing_spree",title="Ballistic"} 1
+csgo_achievements_metric{description="Inflict 1,000,000 total points of damage to enemies",name="give_damage_high",title="A Million Points of Blight"} 1
+csgo_achievements_metric{description="Inflict 2,500 total points of damage to enemies",name="give_damage_low",title="Points in Your Favor"} 1
+csgo_achievements_metric{description="Inflict 50,000 total points of damage to enemies",name="give_damage_med",title="You've Made Your Points"} 1
+csgo_achievements_metric{description="Kill 1,000 enemies with an M4 Assault Rifle",name="kill_enemy_m4a1",title="M4 AR Expert"} 1
+csgo_achievements_metric{description="Kill 1,000 enemies with the AK-47",name="kill_enemy_ak47",title="AK-47 Expert"} 1
+csgo_achievements_metric{description="Kill 10 enemies with the Zeus x27",name="kill_enemy_taser",title="Zeus x27 Expert"} 1
+csgo_achievements_metric{description="Kill 10 enemies you are already dominating during a single match",name="domination_overkills_match",title="Ten Angry Men"} 0
+csgo_achievements_metric{description="Kill 10,000 enemies",name="kill_enemy_high",title="God of War"} 1
+csgo_achievements_metric{description="Kill 100 enemies whom you are already dominating",name="domination_overkills_high",title="Command and Control"} 1
+csgo_achievements_metric{description="Kill 100 enemies with enemy weapons",name="kills_enemy_weapon",title="Friendly Firearms"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the FAMAS",name="kill_enemy_famas",title="FAMAS Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the G3SG1",name="kill_enemy_g3sg1",title="G3SG1 Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the Glock-18",name="kill_enemy_glock",title="Glock-18 Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the HE grenade",name="kill_enemy_hegrenade",title="HE Grenade Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the M249",name="kill_enemy_m249",title="M249 Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the MAC-10",name="kill_enemy_mac10",title="MAC-10 Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the MP9",name="kill_enemy_mp9",title="MP9 Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the Molotov or Incendiary grenade",name="kill_enemy_molotov",title="Flame Expert"} 0
+csgo_achievements_metric{description="Kill 100 enemies with the Negev",name="kill_enemy_negev",title="Negev Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the Nova",name="kill_enemy_nova",title="Nova Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the P2000 or USP",name="kill_enemy_hkp2000",title="P2000/USP Tactical Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the SCAR-20",name="kill_enemy_scar20",title="SCAR-20 Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the SG553",name="kill_enemy_sg556",title="SG553 Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the SSG 08",name="kill_enemy_ssg08",title="SSG 08 Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the Tec-9",name="kill_enemy_tec9",title="Tec-9 Expert"} 1
+csgo_achievements_metric{description="Kill 100 enemies with the knife",name="kill_enemy_knife",title="Knife Expert"} 1
+csgo_achievements_metric{description="Kill 100 zoomed-in enemy snipers",name="kill_snipers",title="Snipe Hunter"} 1
+csgo_achievements_metric{description="Kill 20 enemies who are dominating you",name="revenges_high",title="Can't Keep a Good Man Down"} 1
+csgo_achievements_metric{description="Kill 200 enemies with the Desert Eagle",name="kill_enemy_deagle",title="Desert Eagle Expert"} 1
+csgo_achievements_metric{description="Kill 200 enemies with the XM1014",name="kill_enemy_xm1014",title="XM1014 Expert"} 1
+csgo_achievements_metric{description="Kill 25 enemies",name="kill_enemy_low",title="Body Bagger"} 1
+csgo_achievements_metric{description="Kill 25 enemies blinded by flashbangs",name="kill_enemy_blinded",title="Blind Ambition"} 1
+csgo_achievements_metric{description="Kill 25 enemies with the Dual Berettas",name="kill_enemy_elite",title="Dual Berettas Expert"} 1
+csgo_achievements_metric{description="Kill 25 enemies with the Five-SeveN",name="kill_enemy_fiveseven",title="Five-SeveN Expert"} 1
+csgo_achievements_metric{description="Kill 25 enemies with the P250",name="kill_enemy_p250",title="P250 Expert"} 1
+csgo_achievements_metric{description="Kill 250 enemies with headshots",name="headshots",title="Battle Sight Zero"} 1
+csgo_achievements_metric{description="Kill 250 enemies with the AUG",name="kill_enemy_aug",title="AUG Expert"} 1
+csgo_achievements_metric{description="Kill 250 enemies with the Galil AR",name="kill_enemy_galilar",title="Galil AR Expert"} 1
+csgo_achievements_metric{description="Kill 250 enemies with the MP7",name="kill_enemy_mp7",title="MP7 Expert"} 1
+csgo_achievements_metric{description="Kill 250 enemies with the PP-Bizon",name="kill_enemy_bizon",title="PP-Bizon Expert"} 1
+csgo_achievements_metric{description="Kill 250 enemies with the UMP-45",name="kill_enemy_ump45",title="UMP-45 Expert"} 1
+csgo_achievements_metric{description="Kill 50 enemies with the MAG-7",name="kill_enemy_mag7",title="MAG-7 Expert"} 1
+csgo_achievements_metric{description="Kill 50 enemies with the Sawed-Off",name="kill_enemy_sawedoff",title="Sawed-Off Expert"} 1
+csgo_achievements_metric{description="Kill 500 enemies",name="kill_enemy_med",title="Corpseman"} 1
+csgo_achievements_metric{description="Kill 500 enemies with the AWP",name="kill_enemy_awp",title="AWP Expert"} 1
+csgo_achievements_metric{description="Kill 500 enemies with the P90",name="kill_enemy_p90",title="P90 Expert"} 1
+csgo_achievements_metric{description="Kill a Counter-Terrorist while he is defusing the bomb",name="kill_bomb_defuser",title="Counter-Counter-Terrorist"} 1
+csgo_achievements_metric{description="Kill a player who is on gold knife level in Arms Race Mode",name="gun_game_kill_knifer",title="Denied!"} 1
+csgo_achievements_metric{description="Kill a zoomed-in enemy sniper with a knife",name="kill_sniper_with_knife",title="Sknifed"} 1
+csgo_achievements_metric{description="Kill a zoomed-in enemy sniper with a sniper rifle of your own",name="kill_sniper_with_sniper",title="Eye to Eye"} 1
+csgo_achievements_metric{description="Kill an airborne enemy",name="kill_enemy_in_air",title="Bunny Hunt"} 1
+csgo_achievements_metric{description="Kill an airborne enemy while you are also airborne",name="killer_and_enemy_in_air",title="Aerial Necrobatics"} 1
+csgo_achievements_metric{description="Kill an enemy just as their respawn protection ends in Arms Race mode",name="base_scamper",title="Base Scamper"} 1
+csgo_achievements_metric{description="Kill an enemy player who has just killed four of your teammates within 15 seconds",name="killing_spree_ender",title="Kill One, Get One Spree"} 1
+csgo_achievements_metric{description="Kill an enemy while at one health",name="kill_when_at_low_health",title="Dead Man Stalking"} 1
+csgo_achievements_metric{description="Kill an enemy while they are reloading",name="kill_enemy_reloading",title="Shot With Their Pants Down"} 1
+csgo_achievements_metric{description="Kill an enemy while you are airborne",name="kill_while_in_air",title="Death From Above"} 1
+csgo_achievements_metric{description="Kill an enemy while you are blinded from a flashbang",name="kill_enemies_while_blind",title="Blind Fury"} 1
+csgo_achievements_metric{description="Kill an enemy who has been reduced to less than 5% health by other players",name="kill_low_damage",title="Finishing Schooled"} 1
+csgo_achievements_metric{description="Kill an enemy who has killed a player on your friends list in the same round",name="avenge_friend",title="Avenging Angel"} 1
+csgo_achievements_metric{description="Kill an enemy who has killed four of your teammates within the current round",name="immovable_object",title="The Immovable Object"} 1
+csgo_achievements_metric{description="Kill an enemy who is carrying a hostage",name="kill_hostage_rescuer",title="Dead Shepherd"} 1
+csgo_achievements_metric{description="Kill an enemy who is dominating you",name="revenges_low",title="Insurgent"} 1
+csgo_achievements_metric{description="Kill an enemy who is on gold knife level with a sub-machine gun in Arms Race Mode",name="gun_game_smg_kill_knifer",title="Level Playing Field"} 1
+csgo_achievements_metric{description="Kill an enemy who is on gold knife level with your own knife in Arms Race Mode",name="gun_game_knife_kill_knifer",title="Knife on Knife"} 1
+csgo_achievements_metric{description="Kill an enemy whom you are already dominating",name="domination_overkills_low",title="Overkill"} 1
+csgo_achievements_metric{description="Kill an enemy whom you are dominating four additional times",name="extended_domination",title="Excessive Brutality"} 1
+csgo_achievements_metric{description="Kill an enemy with a grenade after dying",name="dead_grenade_kill",title="Premature Burial"} 1
+csgo_achievements_metric{description="Kill an enemy with a gun they dropped during the current round",name="kill_with_own_gun",title="Lost and F0wnd"} 1
+csgo_achievements_metric{description="Kill an enemy with a knife during the Pistol Round in a Classic match",name="pistol_round_knife_kill",title="Street Fighter"} 1
+csgo_achievements_metric{description="Kill an enemy with an un-zoomed sniper rifle",name="hip_shot",title="Hip Shot"} 1
+csgo_achievements_metric{description="Kill an enemy with the first bullet after your respawn protection ends in Arms Race mode",name="born_ready",title="Born Ready"} 1
+csgo_achievements_metric{description="Kill an enemy with the last bullet in your magazine (excluding sniper rifles and Zeus x27)",name="kill_enemy_last_bullet",title="Magic Bullet"} 1
+csgo_achievements_metric{description="Kill an enemy within three seconds after they recover a dropped bomb",name="kill_bomb_pickup",title="Participation Award"} 1
+csgo_achievements_metric{description="Kill five enemies with a bomb you have planted",name="bomb_multikill",title="Clusterstruck"} 0
+csgo_achievements_metric{description="Kill five enemy players with headshots in a single round",name="headshots_in_round",title="Head Shred Redemption"} 1
+csgo_achievements_metric{description="Kill four enemies within a single round",name="unstoppable_force",title="The Unstoppable Force"} 1
+csgo_achievements_metric{description="Kill the defuser with an HE grenade",name="killed_defuser_with_grenade",title="Defuse This!"} 0
+csgo_achievements_metric{description="Kill the entire opposing team without any members of your team dying",name="lossless_extermination",title="Mercy Rule"} 1
+csgo_achievements_metric{description="Kill the entire opposing team without any members of your team taking damage",name="flawless_victory",title="Clean Sweep"} 1
+csgo_achievements_metric{description="Kill three consecutive players using the first bullet of your gun in Arms Race mode",name="one_shot_one_kill",title="One Shot One Kill"} 1
+csgo_achievements_metric{description="Kill three enemies with a single HE grenade",name="grenade_multikill",title="Three the Hard Way"} 0
+csgo_achievements_metric{description="Kill two enemies while you are blinded from a flashbang",name="kill_enemies_while_blind_hard",title="Spray and Pray"} 1
+csgo_achievements_metric{description="Kill two enemy players with a single bullet",name="kill_two_with_one_shot",title="Ammo Conservation"} 1
+csgo_achievements_metric{description="Personally kill the entire Counter-Terrorist team before the bomb is planted in Demolition Mode",name="gun_game_target_secured",title="Target Secured"} 0
+csgo_achievements_metric{description="Personally kill the entire Terrorist team before the bomb is planted in Demolition Mode",name="gun_game_first_thing_first",title="First Things First"} 1
+csgo_achievements_metric{description="Plant 100 bombs",name="bomb_plant_low",title="Boomala Boomala"} 1
+csgo_achievements_metric{description="Plant a bomb within 25 seconds (excluding Demolition mode)",name="bomb_plant_in_25_seconds",title="Short Fuse"} 1
+csgo_achievements_metric{description="Plant five bombs in Demolition Mode",name="tr_bomb_plant_low",title="Shorter Fuse"} 1
+csgo_achievements_metric{description="Play 100 matches of Arms Race or Demolition mode",name="gun_game_rounds_low",title="Practice Practice Practice"} 1
+csgo_achievements_metric{description="Play 5,000 matches of Arms Race or Demolition mode",name="gun_game_rounds_high",title="King of the Kill"} 0
+csgo_achievements_metric{description="Play 500 matches of Arms Race or Demolition mode",name="gun_game_rounds_med",title="Gun Collector"} 1
+csgo_achievements_metric{description="Play a round on every Arms Race and Demolition map",name="play_every_gungame_map",title="Tourist"} 1
+csgo_achievements_metric{description="Rescue 100 hostages",name="rescue_hostages_low",title="Cowboy Diplomacy"} 0
+csgo_achievements_metric{description="Rescue 500 hostages",name="rescue_hostages_med",title="SAR Czar"} 0
+csgo_achievements_metric{description="Rescue all hostages in a single round",name="rescue_all_hostages",title="Good Shepherd"} 1
+csgo_achievements_metric{description="Rescue all hostages within 90 seconds",name="fast_hostage_rescue",title="Freed With Speed"} 1
+csgo_achievements_metric{description="Shoot out 14 windows in a single round on Office",name="break_windows",title="A World of Pane"} 1
+csgo_achievements_metric{description="Stop defusing the bomb long enough to kill an enemy, then successfully finish defusing it",name="defuse_defense",title="Defusus Interruptus"} 1
+csgo_achievements_metric{description="Successfully defuse a bomb with less than one second remaining",name="bomb_defuse_close_call",title="Second to None"} 1
+csgo_achievements_metric{description="Survive damage from five different enemies within a round",name="survive_many_attacks",title="Target-Hardened"} 1
+csgo_achievements_metric{description="Survive more than 30 seconds with less than ten health in Arms Race or Demolition mode",name="still_alive",title="Still Alive"} 1
+csgo_achievements_metric{description="Take 80 points of damage from enemy grenades and still survive the round",name="survive_grenade",title="Shrapnelproof"} 1
+csgo_achievements_metric{description="Unlock all Pistol kill awards",name="meta_pistol",title="Pistol Master"} 1
+csgo_achievements_metric{description="Unlock all rifle kill awards",name="meta_rifle",title="Rifle Master"} 1
+csgo_achievements_metric{description="Unlock all shotgun kill awards",name="meta_shotgun",title="Shotgun Master"} 1
+csgo_achievements_metric{description="Unlock all sub-machine gun kill awards",name="meta_smg",title="Sub-Machine Gun Master"} 1
+csgo_achievements_metric{description="Unlock every weapon kill award",name="meta_weaponmaster",title="Master At Arms"} 0
+csgo_achievements_metric{description="Use Dual Berettas to kill an enemy player that is also wielding Dual Berettas",name="win_dual_duel",title="Akimbo King"} 1
+csgo_achievements_metric{description="Win 1,000 matches in Arms Race or Demolition mode",name="win_gun_game_rounds_ultimate",title="Cold Pizza Eater"} 0
+csgo_achievements_metric{description="Win 100 knife fights",name="win_knife_fights_high",title="The Bleeding Edge"} 1
+csgo_achievements_metric{description="Win 100 matches in Arms Race or Demolition mode",name="win_gun_game_rounds_high",title="Kill of the Century"} 0
+csgo_achievements_metric{description="Win 100 rounds on Aztec",name="win_map_de_aztec",title="Aztec Map Veteran"} 0
+csgo_achievements_metric{description="Win 100 rounds on Dust",name="win_map_de_dust",title="Dust Map Veteran"} 0
+csgo_achievements_metric{description="Win 100 rounds on Dust2",name="win_map_de_dust2",title="Dust2 Map Veteran"} 1
+csgo_achievements_metric{description="Win 100 rounds on Inferno",name="win_map_de_inferno",title="Inferno Map Veteran"} 1
+csgo_achievements_metric{description="Win 100 rounds on Italy",name="win_map_cs_italy",title="Italy Map Veteran"} 1
+csgo_achievements_metric{description="Win 100 rounds on Nuke",name="win_map_de_nuke",title="Nuke Map Veteran"} 1
+csgo_achievements_metric{description="Win 100 rounds on Office",name="win_map_cs_office",title="Office Map Veteran"} 1
+csgo_achievements_metric{description="Win 100 rounds on Train",name="win_map_de_train",title="Train Map Veteran"} 1
+csgo_achievements_metric{description="Win 200 rounds",name="win_rounds_med",title="Pro-moted"} 1
+csgo_achievements_metric{description="Win 25 Pistol Rounds in Competitive Mode",name="win_pistolrounds_med",title="Give Piece a Chance"} 1
+csgo_achievements_metric{description="Win 25 matches in Arms Race or Demolition mode",name="win_gun_game_rounds_med",title="Keep on Gunning"} 1
+csgo_achievements_metric{description="Win 250 Pistol Rounds in Competitive Mode",name="win_pistolrounds_high",title="Piece Treaty"} 1
+csgo_achievements_metric{description="Win 5 Pistol Rounds in Competitive Mode",name="win_pistolrounds_low",title="Piece Initiative"} 1
+csgo_achievements_metric{description="Win 5,000 rounds",name="win_rounds_high",title="Leet-er of Men"} 1
+csgo_achievements_metric{description="Win 500 matches in Arms Race or Demolition mode",name="win_gun_game_rounds_extreme",title="The Professional"} 0
+csgo_achievements_metric{description="Win a knife fight",name="win_knife_fights_low",title="Make the Cut"} 1
+csgo_achievements_metric{description="Win a match on every Arms Race and Demolition map",name="win_every_gungame_map",title="Marksman"} 0
+csgo_achievements_metric{description="Win a round against five enemies in less than thirty seconds",name="fast_round_win",title="Blitzkrieg"} 1
+csgo_achievements_metric{description="Win a round by defusing a bomb",name="win_bomb_defuse",title="Rite of First Defusal"} 1
+csgo_achievements_metric{description="Win a round by picking up the bomb from a fallen comrade and successfully planting it",name="win_bomb_plant_after_recovery",title="Blast Will and Testament"} 1
+csgo_achievements_metric{description="Win a round by planting a bomb",name="win_bomb_plant",title="Someone Set Up Us The Bomb"} 1
+csgo_achievements_metric{description="Win a round in which no enemy players die",name="bloodless_victory",title="Cold War"} 1
+csgo_achievements_metric{description="Win a round without making any footstep noise, killing at least one enemy",name="silent_win",title="Black Bag Operation"} 1
+csgo_achievements_metric{description="Win an Arms Race match without dying",name="gun_game_rampage",title="Rampage!"} 0
+csgo_achievements_metric{description="Win an Arms Race match without reloading any of your weapons",name="gun_game_conservationist",title="Conservationist"} 1
+csgo_achievements_metric{description="Win five matches in Arms Race Mode on Baggage",name="win_map_ar_baggage",title="Baggage Claimer"} 1
+csgo_achievements_metric{description="Win five matches in Arms Race Mode on Shoots",name="win_map_ar_shoots",title="Shoots Vet"} 1
+csgo_achievements_metric{description="Win five matches on Bank",name="win_map_de_bank",title="Bank On It"} 1
+csgo_achievements_metric{description="Win five matches on Lake",name="win_map_de_lake",title="Vacation"} 1
+csgo_achievements_metric{description="Win five matches on Safehouse",name="win_map_de_safehouse",title="My House"} 1
+csgo_achievements_metric{description="Win five matches on Shorttrain",name="win_map_de_shorttrain",title="Shorttrain Map Veteran"} 0
+csgo_achievements_metric{description="Win five matches on St. Marc",name="win_map_de_stmarc",title="Marcsman"} 1
+csgo_achievements_metric{description="Win five matches on Sugarcane",name="win_map_de_sugarcane",title="Run of the Mill"} 1
+csgo_achievements_metric{description="Win one match in Arms Race or Demolition mode",name="win_gun_game_rounds_low",title="Gungamer"} 1
+csgo_achievements_metric{description="Win ten rounds",name="win_rounds_low",title="Newb World Order"} 1
+csgo_achievements_metric{description="Win ten rounds in a row without dying or spending any cash in Classic mode",name="win_rounds_without_buying",title="The Frugal Beret"} 0
+
+# HELP csgo_last_match_metric Shows metrics from a player last match
+# TYPE csgo_last_match_metric gauge
+csgo_last_match_metric{type="contribution_score"} 38
+csgo_last_match_metric{type="ct_wins"} 7
+csgo_last_match_metric{type="damage"} 3117
+csgo_last_match_metric{type="deaths"} 21
+csgo_last_match_metric{type="dominations"} 0
+csgo_last_match_metric{type="favweapon_hits"} 8
+csgo_last_match_metric{type="favweapon_id"} 9
+csgo_last_match_metric{type="favweapon_kills"} 5
+csgo_last_match_metric{type="favweapon_shots"} 48
+csgo_last_match_metric{type="gg_contribution_score"} 0
+csgo_last_match_metric{type="kills"} 14
+csgo_last_match_metric{type="max_players"} 10
+csgo_last_match_metric{type="money_spent"} 72850
+csgo_last_match_metric{type="mvps"} 1
+csgo_last_match_metric{type="revenges"} 0
+csgo_last_match_metric{type="rounds"} 28
+csgo_last_match_metric{type="t_wins"} 21
+csgo_last_match_metric{type="wins"} 16
+
+# HELP csgo_news_metric Shows the latest news from CSGO
+# TYPE csgo_news_metric gauge
+csgo_news_metric{feedlabel="Community Announcements",title="Release Notes for 4/28/2021",url="https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4074045878072977704"} 1.619712941e+12
+csgo_news_metric{feedlabel="Community Announcements",title="Release Notes for 5/13/2021",url="https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4767601588112071891"} 1.62094693e+12
+csgo_news_metric{feedlabel="Community Announcements",title="Release Notes for 5/6/2021",url="https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4072920612506940713"} 1.620430789e+12
+csgo_news_metric{feedlabel="Community Announcements",title="The End of Broken Fang",url="https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4074045878089438840"} 1.62010384e+12
+csgo_news_metric{feedlabel="GamingOnLinux",title="Looks like Trust Factor in Counter-Strike: Global Offensive on Linux is fixed for Mesa",url="https://steamstore-a.akamaihd.net/news/externalpost/GamingOnLinux/4069544181428079845"} 1.621515326e+12
+csgo_news_metric{feedlabel="PCGamesN",title="A CS:GO modder has taken Cobblestone back to its roots",url="https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/4767601588110588351"} 1.620987573e+12
+csgo_news_metric{feedlabel="PCGamesN",title="CS:GO gets paid stat tracking",url="https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/4072920612496206302"} 1.620175852e+12
+csgo_news_metric{feedlabel="PCGamesN",title="CS:GO patch gives chickens \"a visual upgrade\"",url="https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/4072920612499855100"} 1.620262416e+12
+csgo_news_metric{feedlabel="PCGamesN",title="Valve explains why it never tells CS:GO players anything",url="https://steamstore-a.akamaihd.net/news/externalpost/PCGamesN/4072920612503407326"} 1.62034655e+12
+csgo_news_metric{feedlabel="Rock, Paper, Shotgun",title="CS:GO now has a subscription service offering better player stats",url="https://steamstore-a.akamaihd.net/news/externalpost/Rock, Paper, Shotgun/4074045878091783246"} 1.620159277e+12
+csgo_news_metric{feedlabel="Rock, Paper, Shotgun",title="What game do you wish would get the WoW: Classic treatment?",url="https://steamstore-a.akamaihd.net/news/externalpost/Rock, Paper, Shotgun/4072920612503163979"} 1.620341092e+12
+csgo_news_metric{feedlabel="SteamDB",title="Counter-Strike: Global Offensive update for 13 May 2021",url="https://steamstore-a.akamaihd.net/news/externalpost/SteamDB/4767601588111979582"} 1.620944153e+12
+csgo_news_metric{feedlabel="SteamDB",title="Counter-Strike: Global Offensive update for 19 May 2021",url="https://steamstore-a.akamaihd.net/news/externalpost/SteamDB/4069544181422614738"} 1.62138528e+12
+csgo_news_metric{feedlabel="SteamDB",title="Counter-Strike: Global Offensive update for 21 May 2021",url="https://steamstore-a.akamaihd.net/news/externalpost/SteamDB/4069544181430841066"} 1.621556532e+12
+csgo_news_metric{feedlabel="SteamDB",title="Counter-Strike: Global Offensive update for 29 April 2021",url="https://steamstore-a.akamaihd.net/news/externalpost/SteamDB/4074045878070617038"} 1.619656637e+12
+csgo_news_metric{feedlabel="SteamDB",title="Counter-Strike: Global Offensive update for 29 April 2021",url="https://steamstore-a.akamaihd.net/news/externalpost/SteamDB/4074045878070819542"} 1.619661157e+12
+csgo_news_metric{feedlabel="SteamDB",title="Counter-Strike: Global Offensive update for 29 April 2021",url="https://steamstore-a.akamaihd.net/news/externalpost/SteamDB/4074045878071452256"} 1.619676262e+12
+csgo_news_metric{feedlabel="SteamDB",title="Counter-Strike: Global Offensive update for 3 May 2021",url="https://steamstore-a.akamaihd.net/news/externalpost/SteamDB/4074045878088483991"} 1.62008057e+12
+csgo_news_metric{feedlabel="SteamDB",title="Counter-Strike: Global Offensive update for 6 May 2021",url="https://steamstore-a.akamaihd.net/news/externalpost/SteamDB/4072920612503301401"} 1.620343877e+12
+csgo_news_metric{feedlabel="The Loadout",title="The best CS:GO skins",url="https://steamstore-a.akamaihd.net/news/externalpost/The Loadout/4069544181431724217"} 1.621601672e+12
+
+# HELP csgo_playtime_metric Shows the playtime the user has in the game in minutes
+# TYPE csgo_playtime_metric gauge
+csgo_playtime_metric{type="forever"} 96153
+csgo_playtime_metric{type="last_2_weeks"} 1278
+csgo_playtime_metric{type="linux_forever"} 132
+csgo_playtime_metric{type="mac_forever"} 0
+csgo_playtime_metric{type="windows_forever"} 22778
+
+# HELP csgo_stats_metric Shows metrics a player has from all its matches
+# TYPE csgo_stats_metric gauge
+csgo_stats_metric{name="last_match_contribution_score"} 38
+csgo_stats_metric{name="last_match_ct_wins"} 7
+csgo_stats_metric{name="last_match_damage"} 3117
+csgo_stats_metric{name="last_match_deaths"} 21
+csgo_stats_metric{name="last_match_dominations"} 0
+csgo_stats_metric{name="last_match_favweapon_hits"} 8
+csgo_stats_metric{name="last_match_favweapon_id"} 9
+csgo_stats_metric{name="last_match_favweapon_kills"} 5
+csgo_stats_metric{name="last_match_favweapon_shots"} 48
+csgo_stats_metric{name="last_match_gg_contribution_score"} 0
+csgo_stats_metric{name="last_match_kills"} 14
+csgo_stats_metric{name="last_match_max_players"} 10
+csgo_stats_metric{name="last_match_money_spent"} 72850
+csgo_stats_metric{name="last_match_mvps"} 1
+csgo_stats_metric{name="last_match_revenges"} 0
+csgo_stats_metric{name="last_match_rounds"} 28
+csgo_stats_metric{name="last_match_t_wins"} 21
+csgo_stats_metric{name="last_match_wins"} 16
+csgo_stats_metric{name="steam_stat_xpearnedgames"} 1
+csgo_stats_metric{name="total_TR_defused_bombs"} 13
+csgo_stats_metric{name="total_TR_planted_bombs"} 81
+csgo_stats_metric{name="total_broken_windows"} 584
+csgo_stats_metric{name="total_contribution_score"} 122853
+csgo_stats_metric{name="total_damage_done"} 6.290271e+06
+csgo_stats_metric{name="total_deaths"} 44835
+csgo_stats_metric{name="total_defused_bombs"} 477
+csgo_stats_metric{name="total_domination_overkills"} 209
+csgo_stats_metric{name="total_dominations"} 315
+csgo_stats_metric{name="total_gg_matches_played"} 639
+csgo_stats_metric{name="total_gg_matches_won"} 39
+csgo_stats_metric{name="total_gun_game_contribution_score"} 7981
+csgo_stats_metric{name="total_gun_game_rounds_played"} 1486
+csgo_stats_metric{name="total_gun_game_rounds_won"} 736
+csgo_stats_metric{name="total_hits_ak47"} 19993
+csgo_stats_metric{name="total_hits_aug"} 4141
+csgo_stats_metric{name="total_hits_awp"} 11914
+csgo_stats_metric{name="total_hits_bizon"} 8786
+csgo_stats_metric{name="total_hits_deagle"} 2013
+csgo_stats_metric{name="total_hits_elite"} 885
+csgo_stats_metric{name="total_hits_famas"} 1890
+csgo_stats_metric{name="total_hits_fiveseven"} 1668
+csgo_stats_metric{name="total_hits_g3sg1"} 1371
+csgo_stats_metric{name="total_hits_galilar"} 6131
+csgo_stats_metric{name="total_hits_glock"} 7291
+csgo_stats_metric{name="total_hits_hkp2000"} 11805
+csgo_stats_metric{name="total_hits_m249"} 770
+csgo_stats_metric{name="total_hits_m4a1"} 17581
+csgo_stats_metric{name="total_hits_mac10"} 2616
+csgo_stats_metric{name="total_hits_mag7"} 2405
+csgo_stats_metric{name="total_hits_mp7"} 4394
+csgo_stats_metric{name="total_hits_mp9"} 1673
+csgo_stats_metric{name="total_hits_negev"} 3266
+csgo_stats_metric{name="total_hits_nova"} 5403
+csgo_stats_metric{name="total_hits_p250"} 2158
+csgo_stats_metric{name="total_hits_p90"} 13682
+csgo_stats_metric{name="total_hits_sawedoff"} 1671
+csgo_stats_metric{name="total_hits_scar20"} 1229
+csgo_stats_metric{name="total_hits_sg556"} 3753
+csgo_stats_metric{name="total_hits_ssg08"} 3231
+csgo_stats_metric{name="total_hits_tec9"} 5652
+csgo_stats_metric{name="total_hits_ump45"} 3194
+csgo_stats_metric{name="total_hits_xm1014"} 3488
+csgo_stats_metric{name="total_kills"} 42045
+csgo_stats_metric{name="total_kills_against_zoomed_sniper"} 4614
+csgo_stats_metric{name="total_kills_ak47"} 5434
+csgo_stats_metric{name="total_kills_aug"} 1076
+csgo_stats_metric{name="total_kills_awp"} 10257
+csgo_stats_metric{name="total_kills_bizon"} 1184
+csgo_stats_metric{name="total_kills_deagle"} 749
+csgo_stats_metric{name="total_kills_decoy"} 10
+csgo_stats_metric{name="total_kills_elite"} 165
+csgo_stats_metric{name="total_kills_enemy_blinded"} 1064
+csgo_stats_metric{name="total_kills_enemy_weapon"} 4297
+csgo_stats_metric{name="total_kills_famas"} 400
+csgo_stats_metric{name="total_kills_fiveseven"} 388
+csgo_stats_metric{name="total_kills_g3sg1"} 687
+csgo_stats_metric{name="total_kills_galilar"} 1389
+csgo_stats_metric{name="total_kills_glock"} 1145
+csgo_stats_metric{name="total_kills_headshot"} 12180
+csgo_stats_metric{name="total_kills_hegrenade"} 141
+csgo_stats_metric{name="total_kills_hkp2000"} 2526
+csgo_stats_metric{name="total_kills_knife"} 816
+csgo_stats_metric{name="total_kills_knife_fight"} 232
+csgo_stats_metric{name="total_kills_m249"} 188
+csgo_stats_metric{name="total_kills_m4a1"} 4235
+csgo_stats_metric{name="total_kills_mac10"} 392
+csgo_stats_metric{name="total_kills_mag7"} 317
+csgo_stats_metric{name="total_kills_molotov"} 83
+csgo_stats_metric{name="total_kills_mp7"} 680
+csgo_stats_metric{name="total_kills_mp9"} 251
+csgo_stats_metric{name="total_kills_negev"} 446
+csgo_stats_metric{name="total_kills_nova"} 555
+csgo_stats_metric{name="total_kills_p250"} 480
+csgo_stats_metric{name="total_kills_p90"} 2273
+csgo_stats_metric{name="total_kills_sawedoff"} 236
+csgo_stats_metric{name="total_kills_scar20"} 589
+csgo_stats_metric{name="total_kills_sg556"} 1016
+csgo_stats_metric{name="total_kills_ssg08"} 1397
+csgo_stats_metric{name="total_kills_taser"} 176
+csgo_stats_metric{name="total_kills_tec9"} 1270
+csgo_stats_metric{name="total_kills_ump45"} 659
+csgo_stats_metric{name="total_kills_xm1014"} 433
+csgo_stats_metric{name="total_matches_played"} 2680
+csgo_stats_metric{name="total_matches_won"} 1026
+csgo_stats_metric{name="total_matches_won_baggage"} 9
+csgo_stats_metric{name="total_matches_won_bank"} 7
+csgo_stats_metric{name="total_matches_won_lake"} 37
+csgo_stats_metric{name="total_matches_won_safehouse"} 20
+csgo_stats_metric{name="total_matches_won_shoots"} 21
+csgo_stats_metric{name="total_matches_won_stmarc"} 5
+csgo_stats_metric{name="total_matches_won_sugarcane"} 3
+csgo_stats_metric{name="total_matches_won_train"} 10
+csgo_stats_metric{name="total_money_earned"} 1.17233471e+08
+csgo_stats_metric{name="total_mvps"} 3823
+csgo_stats_metric{name="total_planted_bombs"} 2322
+csgo_stats_metric{name="total_progressive_matches_won"} 83
+csgo_stats_metric{name="total_rescued_hostages"} 21
+csgo_stats_metric{name="total_revenges"} 254
+csgo_stats_metric{name="total_rounds_map_ar_baggage"} 22
+csgo_stats_metric{name="total_rounds_map_ar_monastery"} 24
+csgo_stats_metric{name="total_rounds_map_ar_shoots"} 45
+csgo_stats_metric{name="total_rounds_map_cs_assault"} 87
+csgo_stats_metric{name="total_rounds_map_cs_italy"} 283
+csgo_stats_metric{name="total_rounds_map_cs_militia"} 72
+csgo_stats_metric{name="total_rounds_map_cs_office"} 887
+csgo_stats_metric{name="total_rounds_map_de_aztec"} 52
+csgo_stats_metric{name="total_rounds_map_de_bank"} 222
+csgo_stats_metric{name="total_rounds_map_de_cbble"} 177
+csgo_stats_metric{name="total_rounds_map_de_dust"} 88
+csgo_stats_metric{name="total_rounds_map_de_dust2"} 20127
+csgo_stats_metric{name="total_rounds_map_de_inferno"} 2907
+csgo_stats_metric{name="total_rounds_map_de_lake"} 507
+csgo_stats_metric{name="total_rounds_map_de_nuke"} 1329
+csgo_stats_metric{name="total_rounds_map_de_safehouse"} 228
+csgo_stats_metric{name="total_rounds_map_de_shorttrain"} 8
+csgo_stats_metric{name="total_rounds_map_de_stmarc"} 49
+csgo_stats_metric{name="total_rounds_map_de_sugarcane"} 155
+csgo_stats_metric{name="total_rounds_map_de_train"} 338
+csgo_stats_metric{name="total_rounds_map_de_vertigo"} 295
+csgo_stats_metric{name="total_rounds_played"} 42743
+csgo_stats_metric{name="total_shots_ak47"} 151309
+csgo_stats_metric{name="total_shots_aug"} 25967
+csgo_stats_metric{name="total_shots_awp"} 39293
+csgo_stats_metric{name="total_shots_bizon"} 61781
+csgo_stats_metric{name="total_shots_deagle"} 10719
+csgo_stats_metric{name="total_shots_elite"} 4417
+csgo_stats_metric{name="total_shots_famas"} 10535
+csgo_stats_metric{name="total_shots_fired"} 1.007073e+06
+csgo_stats_metric{name="total_shots_fiveseven"} 9587
+csgo_stats_metric{name="total_shots_g3sg1"} 9570
+csgo_stats_metric{name="total_shots_galilar"} 44371
+csgo_stats_metric{name="total_shots_glock"} 49802
+csgo_stats_metric{name="total_shots_hit"} 152605
+csgo_stats_metric{name="total_shots_hkp2000"} 65913
+csgo_stats_metric{name="total_shots_m249"} 7728
+csgo_stats_metric{name="total_shots_m4a1"} 111137
+csgo_stats_metric{name="total_shots_mac10"} 17694
+csgo_stats_metric{name="total_shots_mag7"} 12846
+csgo_stats_metric{name="total_shots_mp7"} 22428
+csgo_stats_metric{name="total_shots_mp9"} 9801
+csgo_stats_metric{name="total_shots_negev"} 44383
+csgo_stats_metric{name="total_shots_nova"} 31991
+csgo_stats_metric{name="total_shots_p250"} 13652
+csgo_stats_metric{name="total_shots_p90"} 103188
+csgo_stats_metric{name="total_shots_sawedoff"} 9546
+csgo_stats_metric{name="total_shots_scar20"} 7303
+csgo_stats_metric{name="total_shots_sg556"} 30164
+csgo_stats_metric{name="total_shots_ssg08"} 12969
+csgo_stats_metric{name="total_shots_taser"} 667
+csgo_stats_metric{name="total_shots_tec9"} 44940
+csgo_stats_metric{name="total_shots_ump45"} 20529
+csgo_stats_metric{name="total_shots_xm1014"} 22843
+csgo_stats_metric{name="total_time_played"} 3.651452e+06
+csgo_stats_metric{name="total_trbomb_matches_won"} 30
+csgo_stats_metric{name="total_weapons_donated"} 3173
+csgo_stats_metric{name="total_wins"} 21002
+csgo_stats_metric{name="total_wins_map_ar_baggage"} 9
+csgo_stats_metric{name="total_wins_map_ar_monastery"} 8
+csgo_stats_metric{name="total_wins_map_ar_shoots"} 20
+csgo_stats_metric{name="total_wins_map_cs_assault"} 33
+csgo_stats_metric{name="total_wins_map_cs_italy"} 133
+csgo_stats_metric{name="total_wins_map_cs_militia"} 32
+csgo_stats_metric{name="total_wins_map_cs_office"} 451
+csgo_stats_metric{name="total_wins_map_de_aztec"} 24
+csgo_stats_metric{name="total_wins_map_de_bank"} 116
+csgo_stats_metric{name="total_wins_map_de_cbble"} 66
+csgo_stats_metric{name="total_wins_map_de_dust"} 38
+csgo_stats_metric{name="total_wins_map_de_dust2"} 10006
+csgo_stats_metric{name="total_wins_map_de_house"} 5
+csgo_stats_metric{name="total_wins_map_de_inferno"} 1430
+csgo_stats_metric{name="total_wins_map_de_lake"} 272
+csgo_stats_metric{name="total_wins_map_de_nuke"} 615
+csgo_stats_metric{name="total_wins_map_de_safehouse"} 99
+csgo_stats_metric{name="total_wins_map_de_shorttrain"} 3
+csgo_stats_metric{name="total_wins_map_de_stmarc"} 23
+csgo_stats_metric{name="total_wins_map_de_sugarcane"} 73
+csgo_stats_metric{name="total_wins_map_de_train"} 157
+csgo_stats_metric{name="total_wins_map_de_vertigo"} 152
+csgo_stats_metric{name="total_wins_pistolround"} 1317
+
+# HELP csgo_total_kills_metric Shows total kills from a player per weapon
+# TYPE csgo_total_kills_metric gauge
+csgo_total_kills_metric{name="ak47"} 5434
+csgo_total_kills_metric{name="aug"} 1076
+csgo_total_kills_metric{name="awp"} 10257
+csgo_total_kills_metric{name="bizon"} 1184
+csgo_total_kills_metric{name="deagle"} 749
+csgo_total_kills_metric{name="decoy"} 10
+csgo_total_kills_metric{name="elite"} 165
+csgo_total_kills_metric{name="famas"} 400
+csgo_total_kills_metric{name="fiveseven"} 388
+csgo_total_kills_metric{name="g3sg1"} 687
+csgo_total_kills_metric{name="galilar"} 1389
+csgo_total_kills_metric{name="glock"} 1145
+csgo_total_kills_metric{name="headshot"} 12180
+csgo_total_kills_metric{name="hegrenade"} 141
+csgo_total_kills_metric{name="hkp2000"} 2526
+csgo_total_kills_metric{name="knife"} 816
+csgo_total_kills_metric{name="m249"} 188
+csgo_total_kills_metric{name="m4a1"} 4235
+csgo_total_kills_metric{name="mac10"} 392
+csgo_total_kills_metric{name="mag7"} 317
+csgo_total_kills_metric{name="molotov"} 83
+csgo_total_kills_metric{name="mp7"} 680
+csgo_total_kills_metric{name="mp9"} 251
+csgo_total_kills_metric{name="negev"} 446
+csgo_total_kills_metric{name="nova"} 555
+csgo_total_kills_metric{name="p250"} 480
+csgo_total_kills_metric{name="p90"} 2273
+csgo_total_kills_metric{name="sawedoff"} 236
+csgo_total_kills_metric{name="scar20"} 589
+csgo_total_kills_metric{name="sg556"} 1016
+csgo_total_kills_metric{name="ssg08"} 1397
+csgo_total_kills_metric{name="taser"} 176
+csgo_total_kills_metric{name="tec9"} 1270
+csgo_total_kills_metric{name="ump45"} 659
+csgo_total_kills_metric{name="xm1014"} 433
+
+# HELP csgo_total_shots_metric Shows total shots from a player per weapon
+# TYPE csgo_total_shots_metric gauge
+csgo_total_shots_metric{name="ak47"} 151309
+csgo_total_shots_metric{name="aug"} 25967
+csgo_total_shots_metric{name="awp"} 39293
+csgo_total_shots_metric{name="bizon"} 61781
+csgo_total_shots_metric{name="deagle"} 10719
+csgo_total_shots_metric{name="elite"} 4417
+csgo_total_shots_metric{name="famas"} 10535
+csgo_total_shots_metric{name="fired"} 1.007073e+06
+csgo_total_shots_metric{name="fiveseven"} 9587
+csgo_total_shots_metric{name="g3sg1"} 9570
+csgo_total_shots_metric{name="galilar"} 44371
+csgo_total_shots_metric{name="glock"} 49802
+csgo_total_shots_metric{name="hit"} 152605
+csgo_total_shots_metric{name="hkp2000"} 65913
+csgo_total_shots_metric{name="m249"} 7728
+csgo_total_shots_metric{name="m4a1"} 111137
+csgo_total_shots_metric{name="mac10"} 17694
+csgo_total_shots_metric{name="mag7"} 12846
+csgo_total_shots_metric{name="mp7"} 22428
+csgo_total_shots_metric{name="mp9"} 9801
+csgo_total_shots_metric{name="negev"} 44383
+csgo_total_shots_metric{name="nova"} 31991
+csgo_total_shots_metric{name="p250"} 13652
+csgo_total_shots_metric{name="p90"} 103188
+csgo_total_shots_metric{name="sawedoff"} 9546
+csgo_total_shots_metric{name="scar20"} 7303
+csgo_total_shots_metric{name="sg556"} 30164
+csgo_total_shots_metric{name="ssg08"} 12969
+csgo_total_shots_metric{name="taser"} 667
+csgo_total_shots_metric{name="tec9"} 44940
+csgo_total_shots_metric{name="ump45"} 20529
+csgo_total_shots_metric{name="xm1014"} 22843
