@@ -1,3 +1,4 @@
+// Package metrics sets and initializes Prometheus metrics.
 package metrics
 
 import (

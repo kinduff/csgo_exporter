@@ -1,3 +1,4 @@
+// Package config takes care of loading and exposing user configuration.
 package config
 
 import (
