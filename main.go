@@ -1,3 +1,4 @@
+// Package main takes care of the initialization of the application.
 package main
 
 import (

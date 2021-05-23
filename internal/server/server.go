@@ -1,3 +1,4 @@
+// Package server provides an HTTP server to serve the metrics and other endpoints.
 package server
 
 import (

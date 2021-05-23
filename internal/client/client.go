@@ -1,3 +1,4 @@
+// Package client takes care of JSON & XML API requests.
 package client
 
 import (
