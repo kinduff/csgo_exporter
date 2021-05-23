@@ -142,6 +142,8 @@ func getXMLEndpoint(endpoint string, config *config.Config) string {
 	return baseUrl + path
 }
 
+// RetrieveSteamID resolves a vanitity URL - usually a Steam username,
+// into a usable SteamID for API requests.
 func (client *Client) RetrieveSteamID(conf *config.Config) string {
 	log.Info("Retrieving SteamID before initializing")
 
