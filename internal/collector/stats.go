@@ -28,13 +28,13 @@ func (collector *collector) collectStats() {
 		}
 
 		if strings.Contains(s.Name, "total_kills_") {
-			weapon_name := strings.Split(s.Name, "total_kills_")[1]
-			excluded_names := []string{"against_zoomed_sniper", "enemy_blinded", "enemy_weapon", "knife_fight"}
+			weaponName := strings.Split(s.Name, "total_kills_")[1]
+			excludedNames := []string{"against_zoomed_sniper", "enemy_blinded", "enemy_weapon", "knife_fight"}
 
-			found := find(excluded_names, weapon_name)
+			found := find(excludedNames, weaponName)
 
 			if !found {
-				metrics.TotalKills.WithLabelValues(collector.config.SteamID, weapon_name).Set(float64(s.Value))
+				metrics.TotalKills.WithLabelValues(collector.config.SteamID, weaponName).Set(float64(s.Value))
 			}
 		}
 	}
