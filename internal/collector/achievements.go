@@ -23,8 +23,7 @@ func (collector *collector) collectAchievements() {
 		}
 	}
 
-	playerAchievements := collector.playerStats.PlayerStats.Achievements
-	for _, s := range playerAchievements {
+	for _, s := range collector.playerStats.PlayerStats.Achievements {
 		t := collector.allPlayerAchievements[strings.ToLower(s.Name)]
 
 		collector.allPlayerAchievements[t.APIName] = model.Achievement{
