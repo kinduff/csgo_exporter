@@ -154,3 +154,27 @@ func (client *Client) RetrieveSteamID(conf *config.Config) string {
 
 	return ResolveVanityUrl.Response.Steamid
 }
+
+// DoCustomAPIRequest allows to make requests to any API endpoint that doesn't require headers,
+// authentication, or special parameters. Useful for GET requests.
+func (client *Client) DoCustomAPIRequest(endpoint string, config *config.Config, target interface{}) error {
+	req, err := http.NewRequest("GET", endpoint, nil)
+	if err != nil {
+		log.Fatalf("An error has occurred when creating HTTP request %v", err)
+
+		return err
+	}
+
+	log.Infof("Sending HTTP request to %s", req.URL.String())
+
+	resp, err := client.httpClient.Do(req)
+	if err != nil || !(resp.StatusCode >= 200 && resp.StatusCode < 300) {
+		log.Fatalf("An error has occurred during retrieving statistics %v", err)
+
+		return err
+	}
+
+	defer resp.Body.Close()
+
+	return json.NewDecoder(resp.Body).Decode(target)
+}

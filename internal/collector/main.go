@@ -14,6 +14,7 @@ type collector struct {
 	playerStats           model.PlayerStats
 	news                  model.News
 	gameInfo              model.GameInfo
+	playerInventory       map[string]model.PlayerInventory
 	allPlayerAchievements map[string]model.Achievement
 	client                *client.Client
 }
@@ -25,6 +26,7 @@ func NewCollector(config *config.Config) *collector {
 		playerStats:           model.PlayerStats{},
 		news:                  model.News{},
 		gameInfo:              model.GameInfo{},
+		playerInventory:       map[string]model.PlayerInventory{},
 		allPlayerAchievements: map[string]model.Achievement{},
 		client:                client.NewClient(),
 	}
@@ -39,5 +41,6 @@ func (collector *collector) Scrape() {
 		go collector.collectAchievements()
 		go collector.collectGameInfo()
 		go collector.collectNews()
+		go collector.collectPlayerInventory()
 	}
 }

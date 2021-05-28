@@ -79,6 +79,16 @@ var (
 		},
 		[]string{"player", "title", "url", "feedlabel"},
 	)
+
+	// UserInventory - User inventory with the value as the average price.
+	UserInventory = prometheus.NewGaugeVec(
+		prometheus.GaugeOpts{
+			Name:      "user_inventory_metric",
+			Help:      "Shows the content of the users inventory",
+			Namespace: namespace,
+		},
+		[]string{"player", "class_id", "market_name", "currency", "tradable", "marketable"},
+	)
 )
 
 // Init initializes all Prometheus metrics
@@ -93,6 +103,7 @@ func Init() {
 	initMetric("achievements", Achievements)
 	initMetric("playtime", Playtime)
 	initMetric("news", News)
+	initMetric("user_inventory", UserInventory)
 }
 
 func initMetric(name string, metric *prometheus.GaugeVec) {
