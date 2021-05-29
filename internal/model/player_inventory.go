@@ -6,7 +6,7 @@ type PlayerInventory struct {
 	MarketName   string
 	Amount       int64
 	Currency     string
-	AveragePrice float32 // decimal
+	AveragePrice float64 // decimal
 	Tradable     bool
 	Marketable   bool
 }

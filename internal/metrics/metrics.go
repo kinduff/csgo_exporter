@@ -87,7 +87,7 @@ var (
 			Help:      "Shows the content of the users inventory",
 			Namespace: namespace,
 		},
-		[]string{"player", "class_id", "market_name", "currency", "tradable", "marketable"},
+		[]string{"player", "class_id", "market_name", "currency", "amount", "tradable", "marketable"},
 	)
 )
 
