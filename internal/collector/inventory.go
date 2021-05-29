@@ -17,6 +17,12 @@ func (collector *collector) collectPlayerInventory() {
 		log.Fatal(err)
 	}
 
+	itemsList := model.ItemsList{}
+	pricesEndpoint := "https://csgobackpack.net/api/GetItemsList/v2/?no_details=true"
+	if err := collector.client.DoCustomAPIRequest(pricesEndpoint, collector.config, &itemsList); err != nil {
+		log.Fatal(err)
+	}
+
 	for _, s := range inventory.Assets {
 		amount, _ := strconv.ParseInt(s.Amount, 10, 64)
 
@@ -27,14 +33,17 @@ func (collector *collector) collectPlayerInventory() {
 	}
 
 	for _, s := range inventory.Descriptions {
-		t := collector.playerInventory[s.ClassID]
+		asset := collector.playerInventory[s.ClassID]
+		market := itemsList.ItemsList[s.MarketName]
 
-		collector.playerInventory[t.ClassID] = model.PlayerInventory{
-			ClassID:    t.ClassID,
-			Amount:     t.Amount,
-			Tradable:   s.Tradable == 1,
-			Marketable: s.Marketable == 1,
-			MarketName: s.MarketName,
+		collector.playerInventory[asset.ClassID] = model.PlayerInventory{
+			ClassID:      asset.ClassID,
+			Currency:     itemsList.Currency,
+			Amount:       asset.Amount,
+			Tradable:     s.Tradable == 1,
+			Marketable:   s.Marketable == 1,
+			MarketName:   s.MarketName,
+			AveragePrice: market.Price.SevenDays.Average,
 		}
 	}
 
@@ -44,8 +53,9 @@ func (collector *collector) collectPlayerInventory() {
 			s.ClassID,
 			s.MarketName,
 			s.Currency,
+			strconv.FormatInt(s.Amount, 16),
 			strconv.FormatBool(s.Tradable),
 			strconv.FormatBool(s.Marketable),
-		).Set(float64(s.Amount))
+		).Set(s.AveragePrice)
 	}
 }
