@@ -24,7 +24,7 @@ func (collector *collector) collectPlayerInventory() {
 	}
 
 	for _, s := range inventory.Assets {
-		amount, _ := strconv.ParseInt(s.Amount, 10, 64)
+		amount, _ := strconv.ParseInt(s.Amount, 10, 16)
 
 		collector.playerInventory[s.ClassID] = model.PlayerInventory{
 			ClassID: s.ClassID,
