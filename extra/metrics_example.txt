@@ -494,3 +494,39 @@ csgo_total_shots_metric{name="taser"} 667
 csgo_total_shots_metric{name="tec9"} 44940
 csgo_total_shots_metric{name="ump45"} 20529
 csgo_total_shots_metric{name="xm1014"} 22843
+
+# HELP csgo_user_inventory_metric Shows the content of the users inventory
+# TYPE csgo_user_inventory_metric gauge
+csgo_user_inventory_metric{amount="1",class_id="1645417094",currency="EUR",market_name="AK-47 | Fire Serpent (Field-Tested)",marketable="true",tradable="true"} 614.21
+csgo_user_inventory_metric{amount="1",class_id="1648650194",currency="EUR",market_name="★ Karambit | Tiger Tooth (Factory New)",marketable="true",tradable="true"} 722.49
+csgo_user_inventory_metric{amount="1",class_id="1655456003",currency="EUR",market_name="StatTrak™ AWP | Asiimov (Well-Worn)",marketable="true",tradable="true"} 142.43
+csgo_user_inventory_metric{amount="1",class_id="1667526046",currency="EUR",market_name="StatTrak™ AK-47 | Aquamarine Revenge (Minimal Wear)",marketable="true",tradable="true"} 106.1
+csgo_user_inventory_metric{amount="1",class_id="1671135789",currency="EUR",market_name="StatTrak™ USP-S | Kill Confirmed (Field-Tested)",marketable="true",tradable="true"} 164.45
+csgo_user_inventory_metric{amount="1",class_id="520132321",currency="EUR",market_name="★ Butterfly Knife | Scorched (Field-Tested)",marketable="true",tradable="true"} 296.4
+csgo_user_inventory_metric{amount="1",class_id="520159645",currency="EUR",market_name="AWP | Dragon Lore (Minimal Wear)",marketable="true",tradable="true"} 0
+csgo_user_inventory_metric{amount="1",class_id="520246149",currency="EUR",market_name="★ StatTrak™ Butterfly Knife | Safari Mesh (Field-Tested)",marketable="true",tradable="true"} 282.25
+csgo_user_inventory_metric{amount="1",class_id="521372654",currency="EUR",market_name="★ StatTrak™ Butterfly Knife | Blue Steel (Well-Worn)",marketable="true",tradable="true"} 0
+csgo_user_inventory_metric{amount="1",class_id="521730460",currency="EUR",market_name="StatTrak™ P90 | Asiimov (Factory New)",marketable="true",tradable="true"} 160.21
+csgo_user_inventory_metric{amount="1",class_id="521842495",currency="EUR",market_name="★ Butterfly Knife | Stained (Factory New)",marketable="true",tradable="true"} 541.22
+csgo_user_inventory_metric{amount="1",class_id="537248692",currency="EUR",market_name="★ StatTrak™ Butterfly Knife | Stained (Battle-Scarred)",marketable="true",tradable="true"} 379.25
+csgo_user_inventory_metric{amount="1",class_id="551237022",currency="EUR",market_name="AWP | Asiimov (Field-Tested)",marketable="true",tradable="true"} 83.3
+csgo_user_inventory_metric{amount="1",class_id="643700702",currency="EUR",market_name="StatTrak™ AK-47 | Wasteland Rebel (Field-Tested)",marketable="true",tradable="true"} 77.4
+csgo_user_inventory_metric{amount="1",class_id="645386465",currency="EUR",market_name="AWP | Asiimov (Field-Tested)",marketable="true",tradable="true"} 83.3
+csgo_user_inventory_metric{amount="1",class_id="655341996",currency="EUR",market_name="StatTrak™ AK-47 | Wasteland Rebel (Field-Tested)",marketable="true",tradable="true"} 77.4
+csgo_user_inventory_metric{amount="1",class_id="657815633",currency="EUR",market_name="StatTrak™ AK-47 | Vulcan (Field-Tested)",marketable="true",tradable="true"} 188.18
+csgo_user_inventory_metric{amount="1",class_id="658872112",currency="EUR",market_name="AWP | Lightning Strike (Factory New)",marketable="true",tradable="true"} 312.16
+csgo_user_inventory_metric{amount="1",class_id="666502061",currency="EUR",market_name="Desert Eagle | Blaze (Factory New)",marketable="true",tradable="true"} 397.5
+csgo_user_inventory_metric{amount="1",class_id="667939919",currency="EUR",market_name="Desert Eagle | Blaze (Factory New)",marketable="true",tradable="true"} 397.5
+csgo_user_inventory_metric{amount="1",class_id="669804583",currency="EUR",market_name="AWP | Lightning Strike (Factory New)",marketable="true",tradable="true"} 312.16
+csgo_user_inventory_metric{amount="1",class_id="701745103",currency="EUR",market_name="AWP | Lightning Strike (Minimal Wear)",marketable="true",tradable="true"} 267.34
+csgo_user_inventory_metric{amount="1",class_id="720341907",currency="EUR",market_name="★ Bayonet | Rust Coat (Battle-Scarred)",marketable="true",tradable="true"} 175.14
+csgo_user_inventory_metric{amount="1",class_id="720353189",currency="EUR",market_name="★ M9 Bayonet | Rust Coat (Battle-Scarred)",marketable="true",tradable="true"} 216.62
+csgo_user_inventory_metric{amount="1",class_id="720355300",currency="EUR",market_name="★ Gut Knife | Doppler (Factory New)",marketable="true",tradable="true"} 121.31
+csgo_user_inventory_metric{amount="1",class_id="720373690",currency="EUR",market_name="★ Gut Knife | Doppler (Factory New)",marketable="true",tradable="true"} 121.31
+csgo_user_inventory_metric{amount="1",class_id="720377956",currency="EUR",market_name="★ Bayonet | Damascus Steel (Field-Tested)",marketable="true",tradable="true"} 217.8
+csgo_user_inventory_metric{amount="1",class_id="720385927",currency="EUR",market_name="★ Karambit | Ultraviolet (Field-Tested)",marketable="true",tradable="true"} 326.31
+csgo_user_inventory_metric{amount="1",class_id="720568988",currency="EUR",market_name="★ Flip Knife | Damascus Steel (Minimal Wear)",marketable="true",tradable="true"} 126.53
+csgo_user_inventory_metric{amount="1",class_id="720594493",currency="EUR",market_name="★ StatTrak™ Flip Knife | Marble Fade (Factory New)",marketable="true",tradable="true"} 364.79
+csgo_user_inventory_metric{amount="1",class_id="720643226",currency="EUR",market_name="★ Gut Knife | Doppler (Factory New)",marketable="true",tradable="true"} 121.31
+csgo_user_inventory_metric{amount="1",class_id="992253923",currency="EUR",market_name="AWP | Medusa (Well-Worn)",marketable="true",tradable="true"} 1383.02
+csgo_user_inventory_metric{amount="1",class_id="992425917",currency="EUR",market_name="M4A4 | Poseidon (Minimal Wear)",marketable="true",tradable="true"} 1091.4
