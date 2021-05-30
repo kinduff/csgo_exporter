@@ -41,6 +41,9 @@ func (collector *collector) Scrape() {
 		go collector.collectAchievements()
 		go collector.collectGameInfo()
 		go collector.collectNews()
-		go collector.collectPlayerInventory()
+
+		if collector.config.FetchInventory {
+			go collector.collectPlayerInventory()
+		}
 	}
 }

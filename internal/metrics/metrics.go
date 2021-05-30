@@ -2,6 +2,7 @@
 package metrics
 
 import (
+	"github.com/kinduff/csgo_exporter/config"
 	"github.com/prometheus/client_golang/prometheus"
 
 	log "github.com/sirupsen/logrus"
@@ -92,7 +93,7 @@ var (
 )
 
 // Init initializes all Prometheus metrics
-func Init() {
+func Init(config *config.Config) {
 	prometheus.Unregister(prometheus.NewGoCollector())
 	prometheus.Unregister(prometheus.NewProcessCollector(prometheus.ProcessCollectorOpts{}))
 
@@ -103,7 +104,10 @@ func Init() {
 	initMetric("achievements", Achievements)
 	initMetric("playtime", Playtime)
 	initMetric("news", News)
-	initMetric("user_inventory", UserInventory)
+
+	if config.FetchInventory {
+		initMetric("user_inventory", UserInventory)
+	}
 }
 
 func initMetric(name string, metric *prometheus.GaugeVec) {
