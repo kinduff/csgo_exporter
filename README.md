@@ -33,7 +33,7 @@ You can download the latest version of the binary built for your architecture [h
 
 The exporter is also available as a Docker image in [DockerHub][dockerhub] and [Github CR][ghcr]. You can run it using the following example and pass the configuration as environment variables:
 
-``` shell
+```shell
 $ docker run \
   --name csgo_exporter \
   -p 7355:7355 \
@@ -49,7 +49,7 @@ Alternative, you can use `ghcr.io/kinduff/csgo_exporter` if you want to use the 
 
 Optionally, you can download and build it from the sources. You have to retrieve the project sources by using one of the following way:
 
-``` shell
+```shell
 $ go get -u github.com/kinduff/csgo_exporter
 # or
 $ git clone https://github.com/kinduff/csgo_exporter.git
@@ -57,13 +57,13 @@ $ git clone https://github.com/kinduff/csgo_exporter.git
 
 Install the needed vendors:
 
-``` shell
+```shell
 $ GO111MODULE=on go mod vendor
 ```
 
 Then, build the binary:
 
-``` shell
+```shell
 $ go build -o csgo_exporter .
 ```
 
@@ -74,20 +74,24 @@ You can use both environment variables or parameters in both the binary or the d
 | Environment variable                   | Description                                                                                | Default                         | Required |
 |----------------------------------------|--------------------------------------------------------------------------------------------|---------------------------------|----------|
 | `HTTP_PORT`                            | The port the exporter will be running the HTTP server                                      | 7355<sup id="a1">[1](#f1)</sup> |          |
+| `SCRAPE_INTERVAL`                      | Time in natural format to scrap statistics from the CS:GO APIs                             | `30s`                           |          |
 | `STEAM_API_KEY`                        | Your personal API key from Steam, get one using [this link][steam-api]                     |                                 | Yes      |
 | `STEAM_ID` <sup id="a2">[2](#f2)</sup> | The Steam ID you want to fetch the data from for the player statistics                     |                                 | Yes      |
 | `STEAM_NAME`                           | If you don't want to provide a `STEAM_ID` you can provide your username, see the footnotes |                                 |          |
+| `FETCH_INVENTORY`                      | Boolean to determine if the exporter should fetch the player's inventory                   | `true`                          |          |
+| `CURRENCY`                             | The price currency to display the average cost of the player inventory items               | EUR                             |          |
 
 ## Available Prometheus metrics
 
-| Metric name                | Description                                                                                            |
-|----------------------------|--------------------------------------------------------------------------------------------------------|
-| `csgo_stats_metric`        | All the stats from the player, it includes last_match data, totals per weapon, among other cool things |
-| `csgo_total_kills_metric`  | Total shots from a player per weapon                                                                   |
-| `csgo_total_shots_metric`  | Total kills from a player per weapon                                                                   |
-| `csgo_achievements_metric` | All achievements done by the player, with value `1` or `0` for achieved or not                         |
-| `csgo_playtime_metric`     | Hours spent playing the game in minutes in different types, includes stats for each OS                 |
-| `csgo_news_metric`         | The latest news from the CS: GO community, can be used in a table. Value is an epoch                   |
+| Metric name                  | Description                                                                                            |
+|------------------------------|--------------------------------------------------------------------------------------------------------|
+| `csgo_stats_metric`          | All the stats from the player, it includes last_match data, totals per weapon, among other cool things |
+| `csgo_total_kills_metric`    | Total shots from a player per weapon                                                                   |
+| `csgo_total_shots_metric`    | Total kills from a player per weapon                                                                   |
+| `csgo_achievements_metric`   | All achievements done by the player, with value `1` or `0` for achieved or not                         |
+| `csgo_playtime_metric`       | Hours spent playing the game in minutes in different types, includes stats for each OS                 |
+| `csgo_news_metric`           | The latest news from the CS: GO community, can be used in a table. Value is an epoch                   |
+| `csgo_user_inventory_metric` | The player's inventory and the cost of each item. Value is the average cost in the desired currency.   |
 
 ## Footnotes
 
