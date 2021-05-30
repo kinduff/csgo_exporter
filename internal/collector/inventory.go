@@ -18,7 +18,7 @@ func (collector *collector) collectPlayerInventory() {
 	}
 
 	itemsList := model.ItemsList{}
-	pricesEndpoint := "https://csgobackpack.net/api/GetItemsList/v2/?no_details=true"
+	pricesEndpoint := fmt.Sprintf("https://csgobackpack.net/api/GetItemsList/v2/?no_details=true&currency=%s", collector.config.Currency)
 	if err := collector.client.DoCustomAPIRequest(pricesEndpoint, collector.config, &itemsList); err != nil {
 		log.Fatal(err)
 	}

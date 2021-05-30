@@ -21,6 +21,7 @@ type Config struct {
 	SteamAPIKey    string        `config:"steam_api_key,required"`
 	SteamID        string        `config:"steam_id"`
 	SteamName      string        `config:"steam_name"`
+	Currency       string        `config:"currency"`
 	ScrapeInterval time.Duration `config:"scrape_interval,short=i,description=scrape interval in seconds"`
 }
 
@@ -30,6 +31,7 @@ func getDefaultConfig() *Config {
 		SteamAPIKey:    "",
 		SteamID:        "",
 		SteamName:      "",
+		Currency:       "EUR",
 		ScrapeInterval: 30 * time.Second,
 	}
 }
