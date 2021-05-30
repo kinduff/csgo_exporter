@@ -29,7 +29,7 @@ func main() {
 
 	cfg.Show()
 
-	metrics.Init()
+	metrics.Init(cfg)
 
 	client := collector.NewCollector(cfg)
 	go client.Scrape()
