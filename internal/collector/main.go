@@ -33,17 +33,24 @@ func NewCollector(config *config.Config) *collector {
 }
 
 func (collector *collector) Scrape() {
-	for range time.Tick(collector.config.ScrapeInterval) {
-		if collector.config.SteamID == "" {
-			collector.collectSteamID()
-		}
-		go collector.collectStats()
-		go collector.collectAchievements()
-		go collector.collectGameInfo()
-		go collector.collectNews()
+	if collector.config.SteamID == "" {
+		collector.collectSteamID()
+	}
 
-		if collector.config.FetchInventory {
-			go collector.collectPlayerInventory()
-		}
+	collector.collectAll()
+
+	for range time.Tick(collector.config.ScrapeInterval) {
+		collector.collectAll()
+	}
+}
+
+func (collector *collector) collectAll() {
+	go collector.collectStats()
+	go collector.collectAchievements()
+	go collector.collectGameInfo()
+	go collector.collectNews()
+
+	if collector.config.FetchInventory {
+		go collector.collectPlayerInventory()
 	}
 }
