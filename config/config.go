@@ -28,7 +28,7 @@ type Config struct {
 
 func getDefaultConfig() *Config {
 	return &Config{
-		HTTPPort:       "9617",
+		HTTPPort:       "7355",
 		SteamAPIKey:    "",
 		SteamID:        "",
 		SteamName:      "",
