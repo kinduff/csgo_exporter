@@ -73,6 +73,11 @@ func (c Config) Show() {
 			value = "[FILTERED]"
 		}
 
+		// Only print currency if FetchInventory is set
+		if typeField.Name == "Currency" && !c.FetchInventory {
+			continue
+		}
+
 		if value != "" {
 			log.Printf("%s: %s", typeField.Name, value)
 		}
