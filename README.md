@@ -71,15 +71,15 @@ $ go build -o csgo_exporter .
 
 You can use both environment variables or parameters in both the binary or the docker image. If you wish to use parameters, simply invoke the same environment variable but in downcase, or use the flag `--help` for more information.
 
-| Environment variable                   | Description                                                                                | Default                         | Required |
-|----------------------------------------|--------------------------------------------------------------------------------------------|---------------------------------|----------|
-| `HTTP_PORT`                            | The port the exporter will be running the HTTP server                                      | 7355<sup id="a1">[1](#f1)</sup> |          |
-| `SCRAPE_INTERVAL`                      | Time in natural format to scrap statistics from the CS:GO APIs                             | `30s`                           |          |
-| `STEAM_API_KEY`                        | Your personal API key from Steam, get one using [this link][steam-api]                     |                                 | Yes      |
-| `STEAM_ID` <sup id="a2">[2](#f2)</sup> | The Steam ID you want to fetch the data from for the player statistics                     |                                 | Yes      |
-| `STEAM_NAME`                           | If you don't want to provide a `STEAM_ID` you can provide your username, see the footnotes |                                 |          |
-| `FETCH_INVENTORY`                      | Boolean to determine if the exporter should fetch the player's inventory                   | `true`                          |          |
-| `CURRENCY`                             | The price currency to display the average cost of the player inventory items               | EUR                             |          |
+| Environment variable                   | Description                                                                                         | Default                         | Required |
+|----------------------------------------|-----------------------------------------------------------------------------------------------------|---------------------------------|----------|
+| `HTTP_PORT`                            | The port the exporter will be running the HTTP server                                               | 7355<sup id="a1">[1](#f1)</sup> |          |
+| `SCRAPE_INTERVAL`                      | Time in natural format to scrap statistics from the CS:GO APIs                                      | `30s`                           |          |
+| `STEAM_API_KEY`                        | Your personal API key from Steam, get one using [this link][steam-api]                              |                                 | Yes      |
+| `STEAM_ID` <sup id="a2">[2](#f2)</sup> | The Steam ID you want to fetch the data from for the player statistics                              |                                 | Yes      |
+| `STEAM_NAME`                           | If you don't want to provide a `STEAM_ID` you can provide your username, see the footnotes          |                                 |          |
+| `FETCH_INVENTORY`                      | Boolean to determine if the exporter should fetch the player's inventory<sup id="a3">[3](#f3)</sup> | `false`                         |          |
+| `CURRENCY`                             | The price currency to display the average cost of the player inventory items                        | EUR                             |          |
 
 ## Available Prometheus metrics
 
@@ -97,6 +97,7 @@ You can use both environment variables or parameters in both the binary or the d
 
 * <b id="f1">[1]</b>: This port is being assigned for fun, since the bomb code from Counter Strike is `7355608`.
 * <b id="f2">[2]</b>: Please note that the `STEAM_ID` environment variable is not required if you provide a `STEAM_NAME`, but this will add 1 HTTP call in order to fetch the SteamID.
+* <b id="f3">[3]</b>: Inventory should be public, if it's not, the request will fail and the program will exit.
 
 [codefactor]: https://www.codefactor.io/repository/github/kinduff/csgo_exporter
 [configuration]: #configuration
