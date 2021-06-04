@@ -32,7 +32,7 @@ func getDefaultConfig() *Config {
 		SteamAPIKey:    "",
 		SteamID:        "",
 		SteamName:      "",
-		FetchInventory: true,
+		FetchInventory: false,
 		Currency:       "EUR",
 		ScrapeInterval: 30 * time.Second,
 	}
