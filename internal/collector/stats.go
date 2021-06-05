@@ -27,6 +27,10 @@ func (collector *collector) collectStats() {
 			metrics.TotalShots.WithLabelValues(collector.config.SteamID, strings.Split(s.Name, "total_shots_")[1]).Set(float64(s.Value))
 		}
 
+		if strings.Contains(s.Name, "total_hits") {
+			metrics.TotalHits.WithLabelValues(collector.config.SteamID, strings.Split(s.Name, "total_hits_")[1]).Set(float64(s.Value))
+		}
+
 		if strings.Contains(s.Name, "total_kills_") {
 			weaponName := strings.Split(s.Name, "total_kills_")[1]
 			excludedNames := []string{"against_zoomed_sniper", "enemy_blinded", "enemy_weapon", "knife_fight"}

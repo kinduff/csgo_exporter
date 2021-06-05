@@ -51,6 +51,16 @@ var (
 		[]string{"player", "name"},
 	)
 
+	// TotalHits - Total hits per weapon.
+	TotalHits = prometheus.NewGaugeVec(
+		prometheus.GaugeOpts{
+			Name:      "total_hits_metric",
+			Help:      "Shows total hits from a player per weapon ",
+			Namespace: namespace,
+		},
+		[]string{"player", "name"},
+	)
+
 	// Achievements - All achievements a player can have, including the ones it has.
 	Achievements = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
@@ -101,6 +111,7 @@ func Init(config *config.Config) {
 	initMetric("last_match", LastMatch)
 	initMetric("total_shots", TotalShots)
 	initMetric("total_kills", TotalKills)
+	initMetric("total_hits", TotalHits)
 	initMetric("achievements", Achievements)
 	initMetric("playtime", Playtime)
 	initMetric("news", News)
