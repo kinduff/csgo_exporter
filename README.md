@@ -86,8 +86,9 @@ You can use both environment variables or parameters in both the binary or the d
 | Metric name                  | Description                                                                                            |
 |------------------------------|--------------------------------------------------------------------------------------------------------|
 | `csgo_stats_metric`          | All the stats from the player, it includes last_match data, totals per weapon, among other cool things |
-| `csgo_total_kills_metric`    | Total shots from a player per weapon                                                                   |
-| `csgo_total_shots_metric`    | Total kills from a player per weapon                                                                   |
+| `csgo_total_kills_metric`    | Total kills from a player per weapon                                                                   |
+| `csgo_total_shots_metric`    | Total shots from a player per weapon                                                                   |
+| `csgo_total_hits_metric`     | Total hits from a player per weapon                                                                    |
 | `csgo_achievements_metric`   | All achievements done by the player, with value `1` or `0` for achieved or not                         |
 | `csgo_playtime_metric`       | Hours spent playing the game in minutes in different types, includes stats for each OS                 |
 | `csgo_news_metric`           | The latest news from the CS: GO community, can be used in a table. Value is an epoch                   |

@@ -422,6 +422,38 @@ csgo_stats_metric{name="total_wins_map_de_train"} 157
 csgo_stats_metric{name="total_wins_map_de_vertigo"} 152
 csgo_stats_metric{name="total_wins_pistolround"} 1317
 
+# HELP csgo_total_hits_metric Shows total hits from a player per weapon
+# TYPE csgo_total_hits_metric gauge
+csgo_total_hits_metric{name="ak47"} 6686
+csgo_total_hits_metric{name="aug"} 8212
+csgo_total_hits_metric{name="awp"} 832
+csgo_total_hits_metric{name="bizon"} 5313
+csgo_total_hits_metric{name="deagle"} 2140
+csgo_total_hits_metric{name="elite"} 1128
+csgo_total_hits_metric{name="famas"} 3992
+csgo_total_hits_metric{name="fiveseven"} 1203
+csgo_total_hits_metric{name="g3sg1"} 1273
+csgo_total_hits_metric{name="galilar"} 5412
+csgo_total_hits_metric{name="glock"} 4020
+csgo_total_hits_metric{name="hkp2000"} 5131
+csgo_total_hits_metric{name="m249"} 1979
+csgo_total_hits_metric{name="m4a1"} 11899
+csgo_total_hits_metric{name="mac10"} 5205
+csgo_total_hits_metric{name="mag7"} 5348
+csgo_total_hits_metric{name="mp7"} 11842
+csgo_total_hits_metric{name="mp9"} 5759
+csgo_total_hits_metric{name="negev"} 2054
+csgo_total_hits_metric{name="nova"} 7295
+csgo_total_hits_metric{name="p250"} 1048
+csgo_total_hits_metric{name="p90"} 6784
+csgo_total_hits_metric{name="sawedoff"} 2790
+csgo_total_hits_metric{name="scar20"} 1919
+csgo_total_hits_metric{name="sg556"} 4982
+csgo_total_hits_metric{name="ssg08"} 405
+csgo_total_hits_metric{name="tec9"} 980
+csgo_total_hits_metric{name="ump45"} 4748
+csgo_total_hits_metric{name="xm1014"} 6504
+
 # HELP csgo_total_kills_metric Shows total kills from a player per weapon
 # TYPE csgo_total_kills_metric gauge
 csgo_total_kills_metric{name="ak47"} 5434
