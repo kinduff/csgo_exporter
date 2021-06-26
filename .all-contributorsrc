@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "simonszu",
+      "name": "Simon Szustkowski",
+      "avatar_url": "https://avatars.githubusercontent.com/u/700707?v=4",
+      "profile": "http://blog.simonszu.de",
+      "contributions": [
+        "content"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "csgo_exporter",
+  "projectOwner": "kinduff",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
