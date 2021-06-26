@@ -1,7 +1,7 @@
-// Package data holds general data about CS:GO to be used as utils
+// Package data holds general data about CS:GO to be used as utils.
 package data
 
-// WeaponByID returns the formatted name of a weapon by ID
+// WeaponByID returns the formatted name of a weapon by ID.
 func WeaponByID(key int) string {
 	weaponsMap := map[int]string{
 		1:   "Desert Eagle",
@@ -40,7 +40,7 @@ func WeaponByID(key int) string {
 		41:  "Knife",
 		42:  "Knife",
 		43:  "Flashbang",
-		44:  "High Explosive Grenade",
+		44:  "HE Grenade",
 		45:  "Smoke Grenade",
 		46:  "Molotov",
 		47:  "Decoy Grenade",
@@ -81,6 +81,48 @@ func WeaponByID(key int) string {
 		522: "Stiletto Knife",
 		523: "Talon Knife",
 		525: "Skeleton Knife",
+	}
+
+	return weaponsMap[key]
+}
+
+// WeaponByAPIName returns the formatted name of a weapon by API name.
+func WeaponByAPIName(key string) string {
+	weaponsMap := map[string]string{
+		"ak47":      "AK-47",
+		"aug":       "AUG",
+		"awp":       "AWP",
+		"bizon":     "PP-Bizon",
+		"deagle":    "Desert Eagle",
+		"decoy":     "Decoy Grenade",
+		"elite":     "Dual Berettas",
+		"famas":     "FAMAS",
+		"fiveseven": "Five-SeveN",
+		"g3sg1":     "G3SG1",
+		"galilar":   "Galil AR",
+		"glock":     "Glock-18",
+		"hegrenade": "HE Grenade",
+		"hkp2000":   "P2000",
+		"knife":     "Knife",
+		"m4a1":      "M4A1-S",
+		"m249":      "M249",
+		"mac10":     "MAC-10",
+		"mag7":      "MAG-7",
+		"molotov":   "Molotov",
+		"mp7":       "MP7",
+		"mp9":       "MP9",
+		"negev":     "Negev",
+		"nova":      "Nova",
+		"p90":       "P90",
+		"p250":      "P250",
+		"sawedoff":  "Sawed-Off",
+		"scar20":    "SCAR-20",
+		"sg556":     "SG 553",
+		"ssg08":     "SSG 08",
+		"taser":     "Zeus x27",
+		"tec9":      "Tec-9",
+		"ump45":     "UMP-45",
+		"xm1014":    "XM1014",
 	}
 
 	return weaponsMap[key]

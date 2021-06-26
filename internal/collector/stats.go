@@ -30,21 +30,28 @@ func (collector *collector) collectStats() {
 		}
 
 		if strings.Contains(s.Name, "total_shots") {
-			metrics.TotalShots.WithLabelValues(collector.config.SteamID, strings.Split(s.Name, "total_shots_")[1]).Set(float64(s.Value))
+			title := strings.Split(s.Name, "total_shots_")[1]
+			if title != "fired" && title != "hit" {
+				title = data.WeaponByAPIName(title)
+				metrics.TotalShots.WithLabelValues(collector.config.SteamID, title).Set(float64(s.Value))
+			}
 		}
 
 		if strings.Contains(s.Name, "total_hits") {
-			metrics.TotalHits.WithLabelValues(collector.config.SteamID, strings.Split(s.Name, "total_hits_")[1]).Set(float64(s.Value))
+			title := strings.Split(s.Name, "total_hits_")[1]
+			title = data.WeaponByAPIName(title)
+			metrics.TotalHits.WithLabelValues(collector.config.SteamID, title).Set(float64(s.Value))
 		}
 
 		if strings.Contains(s.Name, "total_kills_") {
 			weaponName := strings.Split(s.Name, "total_kills_")[1]
-			excludedNames := []string{"against_zoomed_sniper", "enemy_blinded", "enemy_weapon", "knife_fight"}
+			excludedNames := []string{"against_zoomed_sniper", "enemy_blinded", "enemy_weapon", "knife_fight", "headshot"}
 
 			found := find(excludedNames, weaponName)
 
 			if !found {
-				metrics.TotalKills.WithLabelValues(collector.config.SteamID, weaponName).Set(float64(s.Value))
+				title := data.WeaponByAPIName(weaponName)
+				metrics.TotalKills.WithLabelValues(collector.config.SteamID, title).Set(float64(s.Value))
 			}
 		}
 	}
