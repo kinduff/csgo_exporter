@@ -1,7 +1,4 @@
-![](extra/banner.png)
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+![CSGO Exporter banner](extra/images/banner.png)
 
 # CSGO Exporter
 
@@ -12,10 +9,21 @@
 [![Test / Build](https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml/badge.svg?branch=master)][workflow-c]
 [![Docker Pulls](https://img.shields.io/docker/pulls/kinduff/csgo_exporter.svg?)][dockerhub]
 [![GitHub all releases](https://img.shields.io/github/downloads/kinduff/csgo_exporter/total?)][releases]
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This is a Prometheus exporter for [Counter-Strike: Global Offensive][csgo]. It provides statistics from diverse categories, including last matches.
 
 An example of the output of this exporter can be found [here][metrics_example].
+
+## Grafana Dashboard
+
+This wouldn't be an exporter without its corresponding Grafana Dashboard.
+
+![Grafana Dashboard](extra/images/grafana.png)
+
+This dashboard can be found [here][grafana_dashboard] to be imported to Grafana.
 
 ## Prerequisites
 
@@ -97,6 +105,24 @@ You can use both environment variables or parameters in both the binary or the d
 | `csgo_news_metric`           | The latest news from the CS: GO community, can be used in a table. Value is an epoch                   |
 | `csgo_user_inventory_metric` | The player's inventory and the cost of each item. Value is the average cost in the desired currency.   |
 
+## Contributors
+
+Thanks goes to these wonderful people who had contributed to the project:
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://blog.simonszu.de"><img src="https://avatars.githubusercontent.com/u/700707?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Simon Szustkowski</b></sub></a><br /><a href="#content-simonszu" title="Content">🖋</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 ## Footnotes
 
 * <b id="f1">[1]</b>: This port is being assigned for fun, since the bomb code from Counter Strike is `7355608`.
@@ -116,21 +142,4 @@ You can use both environment variables or parameters in both the binary or the d
 [steam-api]: https://steamcommunity.com/dev/apikey
 [workflow-c]: https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml
 [metrics_example]: extra/metrics_example.txt
-
-## Contributors
-
-Thanks goes to these wonderful people who had contributed to the project:
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="http://blog.simonszu.de"><img src="https://avatars.githubusercontent.com/u/700707?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Simon Szustkowski</b></sub></a><br /><a href="#content-simonszu" title="Content">🖋</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+[grafana_dashboard]: extra/grafana_dashboard.json
