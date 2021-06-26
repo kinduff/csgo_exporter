@@ -28,7 +28,7 @@ var (
 			Help:      "Shows metrics from a player last match",
 			Namespace: namespace,
 		},
-		[]string{"player", "type"},
+		[]string{"player", "type", "title"},
 	)
 
 	// TotalShots - Total shots per weapon.

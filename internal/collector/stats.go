@@ -3,6 +3,7 @@ package collector
 import (
 	"strings"
 
+	"github.com/kinduff/csgo_exporter/internal/data"
 	"github.com/kinduff/csgo_exporter/internal/metrics"
 	log "github.com/sirupsen/logrus"
 )
@@ -20,7 +21,12 @@ func (collector *collector) collectStats() {
 		metrics.Stats.WithLabelValues(collector.config.SteamID, s.Name).Set(float64(s.Value))
 
 		if strings.Contains(s.Name, "last_match") {
-			metrics.LastMatch.WithLabelValues(collector.config.SteamID, strings.Split(s.Name, "last_match_")[1]).Set(float64(s.Value))
+			title := ""
+			statName := strings.Split(s.Name, "last_match_")[1]
+			if statName == "favweapon_id" {
+				title = data.WeaponByID(s.Value)
+			}
+			metrics.LastMatch.WithLabelValues(collector.config.SteamID, statName, title).Set(float64(s.Value))
 		}
 
 		if strings.Contains(s.Name, "total_shots") {
