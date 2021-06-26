@@ -9,9 +9,7 @@
 [![Test / Build](https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml/badge.svg?branch=master)][workflow-c]
 [![Docker Pulls](https://img.shields.io/docker/pulls/kinduff/csgo_exporter.svg?)][dockerhub]
 [![GitHub all releases](https://img.shields.io/github/downloads/kinduff/csgo_exporter/total?)][releases]
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![All Contributors][all_contributors]](#contributors)
 
 This is a Prometheus exporter for [Counter-Strike: Global Offensive][csgo]. It provides statistics from diverse categories, including last matches.
 
@@ -143,3 +141,6 @@ Thanks goes to these wonderful people who had contributed to the project:
 [workflow-c]: https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml
 [metrics_example]: extra/metrics_example.txt
 [grafana_dashboard]: extra/grafana_dashboard.json
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[all_contributors]: https://img.shields.io/badge/all_contributors-1-orange.svg
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
