@@ -1,4 +1,7 @@
 ![](extra/banner.png)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # CSGO Exporter
 
@@ -113,3 +116,23 @@ You can use both environment variables or parameters in both the binary or the d
 [steam-api]: https://steamcommunity.com/dev/apikey
 [workflow-c]: https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml
 [metrics_example]: extra/metrics_example.txt
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://blog.simonszu.de"><img src="https://avatars.githubusercontent.com/u/700707?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Simon Szustkowski</b></sub></a><br /><a href="#content-simonszu" title="Content">🖋</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
