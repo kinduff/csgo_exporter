@@ -21,7 +21,7 @@ This wouldn't be an exporter without its corresponding Grafana Dashboard.
 
 ![Grafana Dashboard](extra/images/grafana.png)
 
-This dashboard can be found [here][grafana_dashboard] to be imported to Grafana.
+This dashboard can be found with the ID `14629` using the Grafana import ([dashboard link][dashboard_link]) or [here in plain text][grafana_dashboard].
 
 ## Prerequisites
 
@@ -140,6 +140,7 @@ Thanks goes to these wonderful people who had contributed to the project:
 [steam-api]: https://steamcommunity.com/dev/apikey
 [workflow-c]: https://github.com/kinduff/csgo_exporter/actions/workflows/ci.yml
 [metrics_example]: extra/metrics_example.txt
+[dashboard_link]: https://grafana.com/grafana/dashboards/14629
 [grafana_dashboard]: extra/grafana_dashboard.json
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [all_contributors]: https://img.shields.io/badge/all_contributors-1-orange.svg
