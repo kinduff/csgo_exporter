@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.0.0"
+      "version": "8.0.3"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": 14546,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1624744467637,
+  "iteration": 1624832722126,
   "links": [
     {
       "asDropdown": false,
@@ -72,6 +72,10 @@
     {
       "collapsed": false,
       "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -82,6 +86,78 @@
       "panels": [],
       "title": "Last Match",
       "type": "row"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "Lose"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "Win"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 1
+      },
+      "id": 1973,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "value"
+      },
+      "pluginVersion": "8.0.3",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(csgo_last_match_metric{type=\"wins\"}) >= bool 15",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "Result",
+          "refId": "A"
+        }
+      ],
+      "title": "Match result",
+      "type": "stat"
     },
     {
       "datasource": null,
@@ -106,7 +182,7 @@
       "gridPos": {
         "h": 4,
         "w": 6,
-        "x": 0,
+        "x": 6,
         "y": 1
       },
       "id": 1907,
@@ -125,7 +201,7 @@
         "text": {},
         "textMode": "name"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -161,8 +237,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
-        "x": 6,
+        "w": 4,
+        "x": 12,
         "y": 1
       },
       "id": 1909,
@@ -181,7 +257,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -217,8 +293,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
-        "x": 12,
+        "w": 4,
+        "x": 16,
         "y": 1
       },
       "id": 1910,
@@ -237,7 +313,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -273,8 +349,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
-        "x": 18,
+        "w": 4,
+        "x": 20,
         "y": 1
       },
       "id": 1911,
@@ -293,7 +369,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -351,11 +427,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
           "expr": "csgo_last_match_metric{type=\"ct_wins\"}",
+          "hide": false,
           "instant": true,
           "interval": "",
           "legendFormat": "CT Wins",
@@ -370,9 +447,18 @@
           "interval": "",
           "legendFormat": "T Wins",
           "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "csgo_last_match_metric{type=\"rounds\"}",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "Rounds",
+          "refId": "C"
         }
       ],
-      "title": "Result",
+      "title": "Stats",
       "transparent": true,
       "type": "stat"
     },
@@ -431,7 +517,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -500,7 +586,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -573,7 +659,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -642,7 +728,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -716,7 +802,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -774,7 +860,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -792,6 +878,10 @@
     {
       "collapsed": false,
       "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -847,7 +937,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -907,7 +997,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -971,6 +1061,10 @@
     {
       "collapsed": false,
       "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1026,7 +1120,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1084,7 +1178,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1141,7 +1235,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1198,7 +1292,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1255,7 +1349,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1313,7 +1407,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1371,7 +1465,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1429,7 +1523,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1487,7 +1581,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1545,7 +1639,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1602,7 +1696,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1660,7 +1754,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.0",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
@@ -1675,8 +1769,12 @@
       "type": "stat"
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1684,91 +1782,92 @@
         "y": 29
       },
       "id": 29,
-      "panels": [],
-      "title": "Stats by Weapon",
-      "type": "row"
-    },
-    {
-      "datasource": "${DS_PROMETHEUS}",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
+      "panels": [
+        {
+          "datasource": "${DS_PROMETHEUS}",
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#222222",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#222222",
-                "value": null
-              }
-            ]
+          "gridPos": {
+            "h": 3,
+            "w": 4,
+            "x": 0,
+            "y": 30
           },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 0,
-        "y": 30
-      },
-      "id": 33,
-      "maxPerRow": 6,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "area",
-        "justifyMode": "center",
-        "orientation": "vertical",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
+          "id": 33,
+          "maxPerRow": 6,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "center",
+            "orientation": "vertical",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "7.5.7",
+          "repeat": "weapon",
+          "repeatDirection": "h",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "csgo_total_kills_metric{name=\"$weapon\"}",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "Kills",
+              "refId": "C"
+            },
+            {
+              "exemplar": true,
+              "expr": "csgo_total_shots_metric{name=\"$weapon\"}",
+              "instant": true,
+              "interval": "",
+              "legendFormat": "Shots",
+              "queryType": "randomWalk",
+              "refId": "A"
+            },
+            {
+              "exemplar": true,
+              "expr": "csgo_total_hits_metric{name=\"$weapon\"}",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "Hits",
+              "refId": "B"
+            }
           ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.0.0",
-      "repeat": "weapon",
-      "repeatDirection": "h",
-      "targets": [
-        {
-          "exemplar": true,
-          "expr": "csgo_total_kills_metric{name=~\"$weapon\"}",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "Kills",
-          "refId": "C"
-        },
-        {
-          "exemplar": true,
-          "expr": "csgo_total_shots_metric{name=~\"$weapon\"}",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "Shots",
-          "queryType": "randomWalk",
-          "refId": "A"
-        },
-        {
-          "exemplar": true,
-          "expr": "csgo_total_hits_metric{name=~\"$weapon\"}",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "Hits",
-          "refId": "B"
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "$weapon",
+          "type": "stat"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "$weapon",
-      "type": "stat"
+      "title": "Stats by Weapon",
+      "type": "row"
     }
   ],
   "schemaVersion": 30,
@@ -1805,12 +1904,12 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "CSGO (Counter-Strike: Global Offensive)",
   "uid": "-f-9FSznk",
-  "version": 21
+  "version": 4
 }
