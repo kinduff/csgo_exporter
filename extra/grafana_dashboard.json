@@ -53,7 +53,7 @@
   "gnetId": 14546,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1624832722126,
+  "iteration": 1625000757974,
   "links": [
     {
       "asDropdown": false,
@@ -72,10 +72,6 @@
     {
       "collapsed": false,
       "datasource": "${DS_PROMETHEUS}",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -97,18 +93,37 @@
           "mappings": [
             {
               "options": {
-                "0": {
-                  "color": "red",
-                  "index": 1,
-                  "text": "Lose"
-                },
                 "1": {
-                  "color": "green",
+                  "color": "yellow",
                   "index": 0,
-                  "text": "Win"
+                  "text": "Tie"
                 }
               },
               "type": "value"
+            },
+            {
+              "options": {
+                "from": 1,
+                "result": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "Win"
+                },
+                "to": 2
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "red",
+                  "index": 2,
+                  "text": "Lose"
+                },
+                "to": 1
+              },
+              "type": "range"
             }
           ],
           "thresholds": {
@@ -149,7 +164,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum(csgo_last_match_metric{type=\"wins\"}) >= bool 15",
+          "expr": "sum(csgo_last_match_metric{type=\"wins\"}) / 15",
           "instant": true,
           "interval": "",
           "legendFormat": "Result",
@@ -909,10 +924,6 @@
     {
       "collapsed": false,
       "datasource": "${DS_PROMETHEUS}",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1092,10 +1103,6 @@
     {
       "collapsed": false,
       "datasource": "${DS_PROMETHEUS}",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1802,10 +1809,6 @@
     {
       "collapsed": true,
       "datasource": "${DS_PROMETHEUS}",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1859,7 +1862,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "7.5.7",
+          "pluginVersion": "8.0.3",
           "repeat": "weapon",
           "repeatDirection": "h",
           "targets": [
@@ -1941,6 +1944,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "CSGO (Counter-Strike: Global Offensive)",
-  "uid": "-f-9FSznk",
-  "version": 4
+  "uid": "txusJokgz",
+  "version": 3
 }
