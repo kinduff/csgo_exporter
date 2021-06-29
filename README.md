@@ -113,6 +113,7 @@ Thanks goes to these wonderful people who had contributed to the project:
 <table>
   <tr>
     <td align="center"><a href="http://blog.simonszu.de"><img src="https://avatars.githubusercontent.com/u/700707?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Simon Szustkowski</b></sub></a><br /><a href="#content-simonszu" title="Content">🖋</a></td>
+    <td align="center"><a href="https://olegzaytsev.com"><img src="https://avatars.githubusercontent.com/u/1511481?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Oleg Zaytsev</b></sub></a><br /><a href="#content-colega" title="Content">🖋</a></td>
   </tr>
 </table>
 
@@ -143,5 +144,5 @@ Thanks goes to these wonderful people who had contributed to the project:
 [dashboard_link]: https://grafana.com/grafana/dashboards/14629
 [grafana_dashboard]: extra/grafana_dashboard.json
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[all_contributors]: https://img.shields.io/badge/all_contributors-1-orange.svg
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
