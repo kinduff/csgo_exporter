@@ -397,13 +397,59 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "rgb(0, 0, 0)",
+                "color": "red",
                 "value": null
               }
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total Rounds"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "rgba(38, 38, 38, 1)",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Wins"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Losses"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 4,
@@ -431,21 +477,21 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "csgo_last_match_metric{type=\"ct_wins\"}",
+          "expr": "csgo_last_match_metric{type=\"wins\"}",
           "hide": false,
           "instant": true,
           "interval": "",
-          "legendFormat": "CT Wins",
+          "legendFormat": "Wins",
           "queryType": "randomWalk",
           "refId": "A"
         },
         {
           "exemplar": true,
-          "expr": "csgo_last_match_metric{type=\"t_wins\"}",
+          "expr": "max(csgo_last_match_metric{type=\"rounds\"}) without (type) - max(csgo_last_match_metric{type=\"wins\"}) without (type)",
           "hide": false,
           "instant": true,
           "interval": "",
-          "legendFormat": "T Wins",
+          "legendFormat": "Losses",
           "refId": "B"
         },
         {
@@ -454,7 +500,7 @@
           "hide": false,
           "instant": true,
           "interval": "",
-          "legendFormat": "Rounds",
+          "legendFormat": "Total Rounds",
           "refId": "C"
         }
       ],
