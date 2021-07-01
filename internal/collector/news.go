@@ -11,6 +11,6 @@ func (collector *collector) collectNews() {
 	}
 
 	for _, s := range collector.news.Appnews.Newsitems {
-		metrics.News.WithLabelValues(collector.config.SteamID, s.Title, s.URL, s.Feedlabel).Set(float64(s.Date) * 1000)
+		metrics.News.WithLabelValues(collector.config.SteamID, collector.config.SteamName, s.Title, s.URL, s.Feedlabel).Set(float64(s.Date) * 1000)
 	}
 }
