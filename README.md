@@ -124,7 +124,7 @@ Thanks goes to these wonderful people who had contributed to the project:
 ## Footnotes
 
 * <b id="f1">[1]</b>: This port is being assigned for fun, since the bomb code from Counter Strike is `7355608`.
-* <b id="f2">[2]</b>: Please note that the `STEAM_ID` environment variable is not required if you provide a `STEAM_NAME`, but this will add 1 HTTP call in order to fetch the SteamID.
+* <b id="f2">[2]</b>: Please note that the `STEAM_ID` environment variable is not required if you provide a `STEAM_NAME`. If you want to save 1 HTTP call, provide both variables.
 * <b id="f3">[3]</b>: Inventory should be public, if it's not, the request will fail and the program will exit.
 
 [codefactor]: https://www.codefactor.io/repository/github/kinduff/csgo_exporter
