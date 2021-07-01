@@ -36,6 +36,10 @@ func (collector *collector) Scrape() {
 		collector.collectSteamID()
 	}
 
+	if collector.config.SteamName == "" {
+		collector.collectSteamName()
+	}
+
 	collector.collectAll()
 
 	for range time.Tick(collector.config.ScrapeInterval) {
