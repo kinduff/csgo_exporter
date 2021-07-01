@@ -50,6 +50,7 @@ func (collector *collector) collectPlayerInventory() {
 	for _, s := range collector.playerInventory {
 		metrics.UserInventory.WithLabelValues(
 			collector.config.SteamID,
+			collector.config.SteamName,
 			s.ClassID,
 			s.MarketName,
 			s.Currency,

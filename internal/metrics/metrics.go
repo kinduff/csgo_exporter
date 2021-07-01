@@ -18,7 +18,7 @@ var (
 			Help:      "Shows metrics a player has from all its matches",
 			Namespace: namespace,
 		},
-		[]string{"player", "name"},
+		[]string{"player", "player_name", "name"},
 	)
 
 	// LastMatch - Stats of a player from its last match.
@@ -28,7 +28,7 @@ var (
 			Help:      "Shows metrics from a player last match",
 			Namespace: namespace,
 		},
-		[]string{"player", "type", "title"},
+		[]string{"player", "player_name", "type", "title"},
 	)
 
 	// TotalShots - Total shots per weapon.
@@ -38,7 +38,7 @@ var (
 			Help:      "Shows total shots from a player per weapon ",
 			Namespace: namespace,
 		},
-		[]string{"player", "name"},
+		[]string{"player", "player_name", "name"},
 	)
 
 	// TotalKills - Total kills per weapon.
@@ -48,7 +48,7 @@ var (
 			Help:      "Shows total kills from a player per weapon ",
 			Namespace: namespace,
 		},
-		[]string{"player", "name"},
+		[]string{"player", "player_name", "name"},
 	)
 
 	// TotalHits - Total hits per weapon.
@@ -58,7 +58,7 @@ var (
 			Help:      "Shows total hits from a player per weapon ",
 			Namespace: namespace,
 		},
-		[]string{"player", "name"},
+		[]string{"player", "player_name", "name"},
 	)
 
 	// Achievements - All achievements a player can have, including the ones it has.
@@ -68,7 +68,7 @@ var (
 			Help:      "Shows all the achievements from a player",
 			Namespace: namespace,
 		},
-		[]string{"player", "name", "title", "description"},
+		[]string{"player", "player_name", "name", "title", "description"},
 	)
 
 	// Playtime - Hours spent playing the game in minutes from different OS.
@@ -78,7 +78,7 @@ var (
 			Help:      "Shows the playtime the user has in the game in minutes",
 			Namespace: namespace,
 		},
-		[]string{"player", "type"},
+		[]string{"player", "player_name", "type"},
 	)
 
 	// News - The latest news from the CSGO community and Valve.
@@ -88,7 +88,7 @@ var (
 			Help:      "Shows the latest news from CSGO",
 			Namespace: namespace,
 		},
-		[]string{"player", "title", "url", "feedlabel"},
+		[]string{"player", "player_name", "title", "url", "feedlabel"},
 	)
 
 	// UserInventory - User inventory with the value as the average price.
@@ -98,7 +98,7 @@ var (
 			Help:      "Shows the content of the users inventory",
 			Namespace: namespace,
 		},
-		[]string{"player", "class_id", "market_name", "currency", "amount", "tradable", "marketable"},
+		[]string{"player", "player_name", "class_id", "market_name", "currency", "amount", "tradable", "marketable"},
 	)
 )
 

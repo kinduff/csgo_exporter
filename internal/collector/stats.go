@@ -18,7 +18,7 @@ func (collector *collector) collectStats() {
 			continue
 		}
 
-		metrics.Stats.WithLabelValues(collector.config.SteamID, s.Name).Set(float64(s.Value))
+		metrics.Stats.WithLabelValues(collector.config.SteamID, collector.config.SteamName, s.Name).Set(float64(s.Value))
 
 		if strings.Contains(s.Name, "last_match") {
 			title := ""
@@ -26,21 +26,21 @@ func (collector *collector) collectStats() {
 			if statName == "favweapon_id" {
 				title = data.WeaponByID(s.Value)
 			}
-			metrics.LastMatch.WithLabelValues(collector.config.SteamID, statName, title).Set(float64(s.Value))
+			metrics.LastMatch.WithLabelValues(collector.config.SteamID, collector.config.SteamName, statName, title).Set(float64(s.Value))
 		}
 
 		if strings.Contains(s.Name, "total_shots") {
 			title := strings.Split(s.Name, "total_shots_")[1]
 			if title != "fired" && title != "hit" {
 				title = data.WeaponByAPIName(title)
-				metrics.TotalShots.WithLabelValues(collector.config.SteamID, title).Set(float64(s.Value))
+				metrics.TotalShots.WithLabelValues(collector.config.SteamID, collector.config.SteamName, title).Set(float64(s.Value))
 			}
 		}
 
 		if strings.Contains(s.Name, "total_hits") {
 			title := strings.Split(s.Name, "total_hits_")[1]
 			title = data.WeaponByAPIName(title)
-			metrics.TotalHits.WithLabelValues(collector.config.SteamID, title).Set(float64(s.Value))
+			metrics.TotalHits.WithLabelValues(collector.config.SteamID, collector.config.SteamName, title).Set(float64(s.Value))
 		}
 
 		if strings.Contains(s.Name, "total_kills_") {
@@ -51,7 +51,7 @@ func (collector *collector) collectStats() {
 
 			if !found {
 				title := data.WeaponByAPIName(weaponName)
-				metrics.TotalKills.WithLabelValues(collector.config.SteamID, title).Set(float64(s.Value))
+				metrics.TotalKills.WithLabelValues(collector.config.SteamID, collector.config.SteamName, title).Set(float64(s.Value))
 			}
 		}
 	}

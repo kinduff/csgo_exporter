@@ -35,6 +35,6 @@ func (collector *collector) collectAchievements() {
 	}
 
 	for _, s := range collector.allPlayerAchievements {
-		metrics.Achievements.WithLabelValues(collector.config.SteamID, s.APIName, s.Title, s.Description).Set(float64(s.Achieved))
+		metrics.Achievements.WithLabelValues(collector.config.SteamID, collector.config.SteamName, s.APIName, s.Title, s.Description).Set(float64(s.Achieved))
 	}
 }
