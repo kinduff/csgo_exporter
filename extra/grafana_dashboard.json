@@ -93,7 +93,7 @@
           "mappings": [
             {
               "options": {
-                "1": {
+                "0.5": {
                   "color": "yellow",
                   "index": 0,
                   "text": "Tie"
@@ -103,13 +103,13 @@
             },
             {
               "options": {
-                "from": 1,
+                "from": 0.6,
                 "result": {
                   "color": "green",
                   "index": 1,
                   "text": "Win"
                 },
-                "to": 2
+                "to": 1
               },
               "type": "range"
             },
@@ -121,7 +121,7 @@
                   "index": 2,
                   "text": "Lose"
                 },
-                "to": 1
+                "to": 0.4
               },
               "type": "range"
             }
