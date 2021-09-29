@@ -11,7 +11,7 @@ require (
 	github.com/prometheus/common v0.29.0 // indirect
 	github.com/sirupsen/logrus v1.8.1
 	github.com/stretchr/testify v1.7.0 // indirect
-	golang.org/x/net v0.0.0-20210924054057-cf34111cab4d
+	golang.org/x/net v0.0.0-20210929193557-e81a3d93ecf6
 	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
