@@ -34,7 +34,7 @@ func getDefaultConfig() *Config {
 		SteamName:      "",
 		FetchInventory: false,
 		Currency:       "EUR",
-		ScrapeInterval: 30 * time.Second,
+		ScrapeInterval: 15 * 60 * time.Second,
 	}
 }
 
