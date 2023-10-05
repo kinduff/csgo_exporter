@@ -80,9 +80,9 @@ $ go build -o csgo_exporter .
 You can use both environment variables or parameters in both the binary or the docker image. If you wish to use parameters, simply invoke the same environment variable but in downcase, or use the flag `--help` for more information.
 
 | Environment variable                   | Description                                                                                         | Default                         | Required |
-|----------------------------------------|-----------------------------------------------------------------------------------------------------|---------------------------------|----------|
+| -------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------- | -------- |
 | `HTTP_PORT`                            | The port the exporter will be running the HTTP server                                               | 7355<sup id="a1">[1](#f1)</sup> |          |
-| `SCRAPE_INTERVAL`                      | Time in natural format to scrap statistics from the CS:GO APIs                                      | `30s`                           |          |
+| `SCRAPE_INTERVAL`                      | Time in natural format to scrap statistics from the CS:GO APIs                                      | `15m`                           |          |
 | `STEAM_API_KEY`                        | Your personal API key from Steam, get one using [this link][steam-api]                              |                                 | Yes      |
 | `STEAM_ID` <sup id="a2">[2](#f2)</sup> | The Steam ID you want to fetch the data from for the player statistics                              |                                 | Yes      |
 | `STEAM_NAME`                           | If you don't want to provide a `STEAM_ID` you can provide your username, see the footnotes          |                                 |          |
@@ -92,7 +92,7 @@ You can use both environment variables or parameters in both the binary or the d
 ## Available Prometheus metrics
 
 | Metric name                  | Description                                                                                            |
-|------------------------------|--------------------------------------------------------------------------------------------------------|
+| ---------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `csgo_stats_metric`          | All the stats from the player, it includes last_match data, totals per weapon, among other cool things |
 | `csgo_total_kills_metric`    | Total kills from a player per weapon                                                                   |
 | `csgo_total_shots_metric`    | Total shots from a player per weapon                                                                   |
