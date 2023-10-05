@@ -110,10 +110,13 @@ Thanks goes to these wonderful people who had contributed to the project:
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="http://blog.simonszu.de"><img src="https://avatars.githubusercontent.com/u/700707?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Simon Szustkowski</b></sub></a><br /><a href="#content-simonszu" title="Content">🖋</a></td>
-    <td align="center"><a href="https://olegzaytsev.com"><img src="https://avatars.githubusercontent.com/u/1511481?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Oleg Zaytsev</b></sub></a><br /><a href="#content-colega" title="Content">🖋</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="http://blog.simonszu.de"><img src="https://avatars.githubusercontent.com/u/700707?v=4?s=100" width="100px;" alt="Simon Szustkowski"/><br /><sub><b>Simon Szustkowski</b></sub></a><br /><a href="#content-simonszu" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://olegzaytsev.com"><img src="https://avatars.githubusercontent.com/u/1511481?v=4?s=100" width="100px;" alt="Oleg Zaytsev"/><br /><sub><b>Oleg Zaytsev</b></sub></a><br /><a href="#content-colega" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/phyzical"><img src="https://avatars.githubusercontent.com/u/5182053?v=4?s=100" width="100px;" alt="Jack"/><br /><sub><b>Jack</b></sub></a><br /><a href="https://github.com/kinduff/csgo_exporter/commits?author=phyzical" title="Code">💻</a></td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->
